@@ -1,0 +1,186 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="icon" href="~/img/favicon.ico" mce_href="favicon.ico" type="image/x-icon">
+
+    <title>有食候-美好的食物都值得等候   </title>
+
+    <meta name="keywords" content="美食,菜谱,食谱,博文，" />
+    <meta name="description" content="有食候是一家有趣的美食分享网站，提供各种美食、菜谱、营养食谱、美味的餐厅餐馆，有趣的分享让您发现不一样世界各地。加入我们，与百万美食爱好者一起分享您的美食经历！ " />
+    <link href="~/Content/style_4_common.css" rel="stylesheet" />
+    <link href="~/Content/style_4_widthauto.css" rel="stylesheet" />
+    <link href="~/Content/style_4_forum_index.css" rel="stylesheet" />
+    <script type="text/javascript">var STYLEID = '4', STATICURL = 'static/', IMGDIR = 'static/image/common', VERHASH = 'wT9', charset = 'utf-8', discuz_uid = '0', cookiepre = 'aWmJ_68f8_', cookiedomain = '.tumi365.com', cookiepath = '/', showusercard = '0', attackevasive = '0', disallowfloat = 'newthread', creditnotice = '', defaultstyle = '', REPORTURL = 'aHR0cDovL3d3dy50dW1pMzY1LmNvbS8=', SITEURL = 'http://www.tumi365.com/', JSPATH = 'static/js/', DYNAMICURL = '';</script>
+    <script type="text/javascript">HTMLNODE.className += ' widthauto'</script>
+    <script src="~/Scripts/common.js"></script>
+    <script src="~/Scripts/forum.js"></script>
+    <script src="~/Scripts/jquery-2.1.4.min.js"></script>
+    <script src="~/Scripts/masonry.pkgd.min.js"></script>
+    <script src="~/Scripts/lazyload.js"></script>
+    <script src="~/Scripts/powupu.js"></script>
+    <script src="~/Scripts/imgload.js"></script>
+    <script>var jq = jQuery.noConflict();</script>
+    <script>
+        (function () {
+            var bp = document.createElement('script');
+            bp.src = '//push.zhanzhang.baidu.com/push.js';
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(bp, s);
+        })();
+
+       
+        
+    </script>
+
+
+</head>
+<body>
+    <div>
+        <div id="hd">
+            <div style="width:1190px; margin:0 auto;">
+                <h2><a href="@Url.Action("Index","Home")" title="有食候"><img src="~/img/common_logo.png" alt="有食候"></a></h2>
+                <div id="munecd">
+                    <a href="@Url.Action("Index","Home")">首页</a><div style="display: inline-block" id="mn_F38">
+                    <a href="#" hidefocus="true">最新</a></div><div style="display: inline-block" id="mn_F40">
+                    <a href="http://www.tumi365.com/sp/1" hidefocus="true">菜谱</a></div><div style="display: inline-block" id="mn_F43">
+                    <a href="@Url.Action("MenuShow","Menu")" hidefocus="true">菜单</a></div><div style="display: inline-block" id="mn_F42">
+                    <a href="@Url.Action("ArticleIndex","Article")" hidefocus="true">博文</a></div><div style="display: inline-block" id="mn_F49">
+                    <a href="@Url.Action("SpecialShow","Special")" hidefocus="true">专题</a></div>
+                </div>
+                <div id="sousuo">
+                    <div id="scbar" class="cl">
+                        <form id="scbar_form" method="post" autocomplete="off" onsubmit="searchFocus($('scbar_txt'))" action="search.php?searchsubmit=yes" target="_blank">
+
+
+                            <table cellspacing="0" cellpadding="0">
+                                <tbody>
+                                    <tr>
+                                        <td class="scbar_txt_td"><input type="text" name="srchtxt" id="scbar_txt" value="" autocomplete="off" x-webkit-speech="" speech="" class=" xg1" placeholder="请输入搜索内容"></td>
+                                        <td class="scbar_btn_td"><button type="submit" name="searchsubmit" id="scbar_btn" sc="1" class="pn pnc" value="true"><strong class="xi2">搜索</strong></button></td>
+                                        <td class="scbar_hot_td">
+                                            <div id="scbar_hot">
+                                            </div>
+                                        </td>
+
+
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </form>
+                    </div>
+                </div>
+                @if (Session["UserName"] != null)
+            {
+                    <div class="hdc cl" id="h_user">
+                        <div id="fenxiang" style="background-position-y: 0px;">
+                            <div id="fxmenu" style="display: none;">
+                                <a class="changebg" href="#" rel="nofollow" style="background: rgb(255, 255, 255);">发布食谱</a>
+                                <a class="changebg" href="#" rel="nofollow">菜单</a>
+                                <a class="changebg" href="#" rel="nofollow">发布博文</a>
+                                <a class="changebg" href="#" rel="nofollow">专题</a>
+                            </div>
+                        </div>
+                        <div id="um" style="width:100px;">
+                            <div id="hnews">
+                                <a href="#" id="myprompt" rel="nofollow"></a>
+                            </div>
+                            <div id="usert" style="display: inline-block; position: absolute; background: rgb(255, 255, 255);">
+                                <div class="touxiang"><a href="#" rel="nofollow"><img src="@Session["HeadPic"]" /></a></div>
+                                <div id="usersz" style="display: none;">
+                                    <p>@Session["UserName"]</p>
+                                    <div class="usermenu"><i style="background-position-y:-2px;"></i><a href="#" rel="nofollow">个人设置</a></div>
+                                    <div class="usermenu"><i style="background-position-y: -68px;"></i><a href="#" rel="nofollow">我的菜谱</a></div>
+                                    <div class="usermenu"><i style="background-position-y: -91px;"></i><a href="#" rel="nofollow">我的博文</a></div>
+                                    <div class="usermenu" style="border-top:1px solid rgb(224, 224, 224);"><i style="background-position-y: -109px;"></i><a href="#" rel="nofollow">关注好友</a></div>
+                                    <div class="usermenu" style="border-top:1px solid rgb(224, 224, 224);"><i style="background-position-y: -129px;"></i><a href="@Url.Action("Logoff", "Users")" rel="nofollow">退出</a></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                }
+                else
+                {
+                    <div class="hdc cl" id="h_user">
+                        <span id="return_ls" style="display:none"></span>
+                        <div class="y pns">
+                            <table cellspacing="0" cellpadding="0" style="float:right; margin-top:24px;">
+                                <tbody>
+                                    <tr>
+                                        <td class="fastlg_l"><a href="@Url.Action("Login","Users")" id="tm_reg" class="tm_dlzc" rel="nofollow"> 登录</td>
+                                        <td><a href="@Url.Action("Register","Users")" id="tm_reg" class="tm_dlzc" rel="nofollow">立即注册</a></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+                }
+            </div>
+
+            <div class="wp">
+                <div class="p_pop h_pop" id="mn_userapp_menu" style="display: none"></div><div id="mu" class="cl">
+                </div>
+                <ul id="scbar_type_menu" class="p_pop" style="display: none;"><li><a href="javascript:;" rel="forum" class="curtype">帖子</a></li><li><a href="javascript:;" rel="user">用户</a></li></ul>
+                <script type="text/javascript">
+                    initSearchmenu('scbar', '');
+                </script>
+            </div>
+        </div>
+    </div>
+    <div id="tm-lr"></div>
+
+    @RenderBody()
+
+    <script>fixed_top_nv();</script>	
+    <div id="ft" class="wp cl">
+        <div style="width:1100px; margin:0 auto;">
+            <div id="flk" class="y">
+                <div style="color: #b9b5b4;font-size: 13px; padding-left:10px;">关于我们</div>
+                <p>
+                    <a href="#">关于我们</a><a href="#">加入我们</a><a href="#">联系我们</a><a href="#">版权声明</a><strong><a href="#" target="_blank" rel="nofollow"></a></strong>
+
+                    <div style="display:none;">
+                        <script>
+                        var _hmt = _hmt || [];
+                        (function () {
+                            var hm = document.createElement("script");
+                            hm.src = "//hm.baidu.com/hm.js?1bfa6ce88775a3b74246050d17455f4f";
+                            var s = document.getElementsByTagName("script")[0];
+                            s.parentNode.insertBefore(hm, s);
+                        })();
+                        </script>
+                    </div>
+                </p>
+
+            </div>
+            <div class="guanzhu">
+                <div style="color: #b9b5b4;font-size: 13px;">关注我们</div>
+                <div> <a href="#" target="_blank" rel="nofollow">桂冲昊 </a> </div>
+                <div> <a href="#" target="_blank" rel="nofollow">温智伟 </a> </div>
+                <div> <a href="#" target="_blank" rel="nofollow">指导老师：曾雅琳 </a> </div>
+                <div> <a href="#" target="_blank" rel="nofollow">管理员入口 </a> </div>
+            </div>
+            <div class="bawz">
+                <div style="color: #b9b5b4;font-size: 13px;">"有食候"分享美食美味，记录生活点滴,Listen to me!</div>
+                <div>
+                    <a href="#" target="_blank" rel="nofollow">有食候是一个关于美食、美文的综合性网站，你可以分享你喜欢的美食美味，记录你旅行的点滴。站点每日更新分享，为每一位喜欢美食和旅游的你提供优质分享。</a>
+                    <div> <a href="http://www.miitbeian.gov.cn/" target="_blank" rel="nofollow">版权所有&nbsp;&copy;江西师范大学软件学院</a> </div>
+                </div><div class="bm lk">
+                </div>
+            </div>
+        </div>
+    </div>
+  
+    <script type="text/javascript">_attachEvent(window, 'scroll', function () { showTopLink(); }); checkBlind();</script>
+    <div id="discuz_tips" style="display:none;"></div>
+    <script type="text/javascript">
+        var tipsinfo = '54575705|X3.2|0.6||0||0|7|1525606792|0aa63e642f98c765f306641e207f52b4|2';
+    </script>
+    <script src="http://discuz.gtimg.cn/cloud/scripts/discuz_tips.js?v=1" type="text/javascript" charset="UTF-8"></script>
+</body>
+
+</html>

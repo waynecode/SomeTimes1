@@ -1,0 +1,13 @@
+﻿@model IEnumerable<Models.Menu>
+@{
+    ViewBag.Title = "MenuShow";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div>
+
+    @foreach (var s in Model)
+    {
+        <a href="@Url.Action("MenuFood", "Menu", new { id = s.MenuID})"><h2>@s.MenuName</h2></a>
+    }
+</div>

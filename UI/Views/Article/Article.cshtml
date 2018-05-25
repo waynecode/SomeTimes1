@@ -1,0 +1,40 @@
+﻿@model IEnumerable<Models.Articles>
+
+@{
+      Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link href="~/Content/article.css" rel="stylesheet"/>
+
+
+   
+      
+
+                <div class="">
+                    @foreach (var article in Model)
+                    {                       
+                            <div class="alist"> 
+                                <div class="headpic">
+                                    <a href=""></a>
+                                    @*<img src="~/img/touxiang.jpg" />*@
+                                </div>
+                                <div class="tie">
+                                    <a href="@Url.Action("ArticleDetails", "ArticleShow", new { id = article.ArticleID})"><h2>@article.Title</h2></a>
+                                </div>
+                                <div>
+                                    <p>发布：&nbsp;&nbsp;&nbsp;@article.CreateTime</p>
+                                </div>
+                                <div>
+                                    <p>食文简介：&nbsp;&nbsp;&nbsp;@article.HeadLine</p>
+                                </div>
+                                <div>
+                                    <img src="@article.Picture" height="260" width="178" />
+                                </div>                           
+                            </div>
+                    }
+                </div>
+         
+
+      
+
+

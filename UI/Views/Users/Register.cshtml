@@ -1,0 +1,98 @@
+﻿@model Models.Users
+@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+<div id="wp" class="wp">
+    <div id="ct" class="ptm wp cl">
+        <div class="nfl" id="main_succeed" style="display: none">
+            <div class="f_c altw">
+                <div class="alert_right">
+                    <p id="succeedmessage"></p>
+                    <p id="succeedlocation" class="alert_btnleft"></p>
+                    <p class="alert_btnleft"><a id="succeedmessage_href">如果您的浏览器没有自动跳转，请点击此链接</a></p>
+                </div>
+            </div>
+        </div>
+        <div class="mn">
+
+            <div class="bm" id="main_message">
+
+                <p id="returnmessage4"></p>
+                <div id="main_messaqge_" class="user_reg">
+                    <div style="padding:0px 100px;">
+                        <em style="border-top: 1px solid #ededed;display: block; width: 300px; position: relative;top: 65px;"></em>
+                        <p style="height: 43px;line-height: 42px;font-size: 22px;color: #333;text-align: center; margin: 40px auto;">请通过用户名注册</p>
+                        <em style="border-top: 1px solid #ededed; display: block; width: 300px; position: relative;    top: -60px;  float: right;"></em>
+                    </div>
+              
+                    <div class="mtw" style=" margin 20px 80px 0px;">
+
+                        <div id="reginfo_a">
+                            @{Html.EnableClientValidation();}
+                            @using (Html.BeginForm("Register", "Users", FormMethod.Post, new { @id = "mainform"  }))
+                            {
+
+                                <div class="rfm">
+                                    <table style="margin-left:255px">
+                                        <tbody>
+                                            <tr>
+
+                                                <td>@Html.EditorFor(model => model.UserName, new { htmlAttributes = new { @class = "p_fre", id = "txtUser", PlaceHolder = "用户名" } })</td>
+                                                <td class="tipcol"></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                                <div class="rfm">
+                                    <table style="margin-left:255px">
+                                        <tbody>
+                                            <tr>
+
+                                                <td>@Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "p_fre", @id = "txtPassword", type = "password", PlaceHolder = "密码" } })</td>
+                                                <td class="tipcol"><div class="passtip"></div></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                                <div class="rfm">
+                                    <table style="margin-left:255px">
+                                        <tbody>
+                                            <tr>
+
+                                                <td>@Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "p_fre", @id = "txtRePassword", type = "password", PlaceHolder = "确认密码" } })</td>
+                                                <td class="tipcol"><div class="repasstip"></div></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                                <div class="rfm">
+                                    <table style="margin-left:255px">
+                                        <tbody>
+                                            <tr>
+
+                                                <td>@Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "p_fre", @id = "txtMail", PlaceHolder = "邮箱" } })</td>
+                                                <td class="tipcol"><div class="mailtip"></div></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <br />
+                                <input type="submit" id="btnRegister" value="注册" class="pn pnc" style="background-color: #32A5E7; font-size: 14px; font-family: 'Microsoft Yahei ,Arial,Helvetica,sans-serif'; color: #ffffff; height: 40px; width: 680px;margin-left:177px" />
+
+                            }
+                        </div>
+
+                    </div>
+          </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>

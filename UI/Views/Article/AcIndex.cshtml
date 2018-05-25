@@ -1,0 +1,54 @@
+﻿@using PagedList.Mvc;
+@model PagedList.IPagedList<Models.Articles>
+
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>CiIndex</title>
+    <link href="~/Content/css/gg.css" rel="stylesheet" />
+    <link href="~/Content/css/passport.css" rel="stylesheet" />
+</head>
+<body>
+    <div id="Div1" class="allart r3">
+        @foreach (var article in Model)
+            {
+            <div class="oarticle clearfix pvl libdm">
+                <div class="scimg mrl">
+
+                    <img src="@article.Picture" />
+                </div>
+                <h3><a href="@Url.Action("ArticleDetails", "ArticleShow", new { id = article.ArticleID})"></a> @article.Title</h3>
+                <span class="pbs pts"><a href="@Url.Action("ArticleDetails", "ArticleShow", new { id = article.ArticleID})"></a> 发表于 @article.CreateTime</span>
+                <div class="jiep">
+                    @article.HeadLine（<a href="@Url.Action("ArticleDetails", "ArticleShow", new { id = article.ArticleID})">查看全文</a>）
+                </div>
+                <div class="jimp"><span class="prm">来自：<a href="#" target="_blank"></a> @article.ArticleCategory.ArticleCName</span><span class="right phm liscr">710次阅读</span></div>
+            </div>
+
+        }
+        <div class="pagination mt30 mb30">
+            Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+            <div class="page_PN">
+                <span class="floblock" style="cursor: pointer;">@Html.PagedListPager(Model, page => Url.Action("ArticleIndex", "Article", new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))</span>
+            </div>
+
+        </div>
+    </div>
+
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+

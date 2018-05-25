@@ -1,0 +1,192 @@
+﻿  .note_lt {
+    width: 880px;
+}
+    .lf
+    {
+        float:left;
+    }
+    h2
+    {
+        font-size:17px;
+        color:#333;
+    }
+    .huodong
+    {
+        margin-bottom:10px;
+    }
+    .note-ul
+    {
+        position:relative;
+        overflow:hidden;
+    }
+    .note_li
+    {
+        position: relative;
+top: 1px;
+padding: 25px 0 20px 65px;
+border-top: 1px dashed #1badb6;
+
+overflow: hidden;
+    }
+
+    .note_li .face
+    {
+        position:absolute;
+        left:0;
+    }
+    .note_li .face .imgf
+    {
+        border-radius:25px;
+    }
+    .note_li .face img
+    {
+        width:50px;
+        height:50px;
+    }
+    .note_tit h2
+    {
+        font-size:18px;
+        line-height:27px;
+    }
+    .c33{
+        color:#333;
+    }
+    .person
+    {
+        margin:6px 0 10px;
+    }
+    .note_name
+    {
+        color:#0084bb;
+        margin-right:18px;
+    }
+    .c99 {
+        color: #999;
+    }
+     
+    .clrfix
+    {
+        zoom:1;
+    }
+    .title ul
+    {
+        position:relative;
+        top:18px;
+    }
+    .rt
+    {
+        float:right;
+    }
+    .clrfix::after {
+    clear: both;
+    display: block;
+    height: 0;
+    visibility: hidden;
+    content: ".";
+
+}
+    .numTab {
+    float: left;
+    margin: 3px 5px 3px 3px;
+    font-family: "simsun";
+    color: #999;
+
+}
+    .icon_total {
+        width: 18px;
+        height: 18px;
+        margin: 0 4px;
+        background-image: url("/img/icon_nav_total.png");
+    }
+    .scan {
+    background-position: -1px -1px;
+}
+    .love {
+    background-position: -1px -21px;
+}
+    .mark {
+    background-position: -1px -41px;
+}
+    .cont_dl {
+    line-height: 24px;
+    overflow: hidden;
+
+}
+
+    .c66 {
+    color: #666;
+}
+
+    .cont_dl dd {
+    float: left;
+}
+    .imgul {
+    margin: 15px 0 0 -5px;
+    height: 150px;
+    overflow: hidden;
+    *margin-left: -10px;
+}
+    .imgli {
+    float: left;
+    margin-left: 5px;
+}
+
+    .note_rt {
+    width: 225px;
+}
+    .rt{
+        float:right;
+    }
+    .book {
+        margin-top: -32px;
+    }
+    .note_rt .title
+    {
+        margin-top:30px;
+    }
+    .img_book {
+        margin-top: 15px;
+        padding: 11px;
+        width: 200px;
+        height: 282px;
+        border: 1px solid #e1e1e1;
+    }
+    .img_book a {
+    display: block;
+}
+    .detail {
+    margin-top: 15px;
+    line-height: 23px;
+}
+    .dr1 {
+        /*margin-top:94px;*/
+    width: 100%;
+    background: url(/img/wKgBs1dXgZSALqcGAAfFQlKKW7E65.jpeg) center 0px no-repeat;
+    height: 540px;
+    position: relative;
+    margin-bottom:25px;
+}
+    .dr2 {
+    width: 100%;
+    background: url(/img/20160118194610_100.png) center 0px no-repeat;
+    height: 351px;
+    position: relative;
+    margin-bottom:20px;
+}
+    .fabu a
+    {
+        top:400px;
+        right:300px;
+        margin: 0 auto;
+        margin-top: 20px;
+        display: block;
+        width: 150px;
+        height: 40px;
+        background:rgba(255,106,0,0.7);
+       border-radius:5px;
+       text-align:center;
+       padding-top:6px;
+       font-size:20px;
+       color:#fff;
+        position:absolute;
+    }

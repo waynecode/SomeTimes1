@@ -1,0 +1,1563 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="FoodsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="ArticleCategory">
+          <Key>
+            <PropertyRef Name="ArticleCategoryID" />
+          </Key>
+          <Property Name="ArticleCategoryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ArticleCName" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="ArticleCom">
+          <Key>
+            <PropertyRef Name="ArticleComID" />
+          </Key>
+          <Property Name="ArticleComID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ArticleID" Type="int" Nullable="false" />
+          <Property Name="ComContent" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="ComTime" Type="datetime" Nullable="false" />
+          <Property Name="UserID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ArticleReply">
+          <Key>
+            <PropertyRef Name="ArticleReplyID" />
+          </Key>
+          <Property Name="ArticleReplyID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ArticleComID" Type="int" Nullable="false" />
+          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="ReplyTime" Type="datetime" Nullable="false" />
+          <Property Name="ReplyContent" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Articles">
+          <Key>
+            <PropertyRef Name="ArticleID" />
+          </Key>
+          <Property Name="ArticleID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Content" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="CreateTime" Type="datetime" Nullable="false" />
+          <Property Name="ComAID" Type="int" />
+          <Property Name="ArticleCategoryID" Type="int" />
+          <Property Name="Picture" Type="nvarchar" MaxLength="50" />
+          <Property Name="HeadLine" Type="nvarchar" MaxLength="200" />
+          <Property Name="ArticleCategory" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="Collect">
+          <Key>
+            <PropertyRef Name="CollectID" />
+          </Key>
+          <Property Name="CollectID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FoodID" Type="int" />
+          <Property Name="ArticleID" Type="int" />
+          <Property Name="UserID" Type="int" />
+        </EntityType>
+        <EntityType Name="Food">
+          <Key>
+            <PropertyRef Name="FoodID" />
+          </Key>
+          <Property Name="FoodID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FoodName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="FoodImage" Type="text" Nullable="false" />
+          <Property Name="FoodVideo" Type="nvarchar" MaxLength="50" />
+          <Property Name="Notice" Type="nvarchar(max)" />
+          <Property Name="Setp1" Type="nvarchar(max)" />
+          <Property Name="Image1" Type="text" />
+          <Property Name="Step2" Type="nvarchar(max)" />
+          <Property Name="Image2" Type="text" />
+          <Property Name="Step3" Type="nvarchar(max)" />
+          <Property Name="Image3" Type="text" />
+          <Property Name="FoodCategoryID" Type="int" />
+          <Property Name="TagID" Type="int" />
+          <Property Name="UserID" Type="int" />
+          <Property Name="yuanliao" Type="nvarchar(max)" />
+          <Property Name="CTime" Type="datetime" />
+          <Property Name="MenuID" Type="int" />
+          <Property Name="SpecialID" Type="int" />
+        </EntityType>
+        <EntityType Name="FoodCategory">
+          <Key>
+            <PropertyRef Name="FoodCategoryID" />
+          </Key>
+          <Property Name="FoodCategoryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FoodCName" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="FoodCom">
+          <Key>
+            <PropertyRef Name="FoodComID" />
+          </Key>
+          <Property Name="FoodComID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FoodID" Type="int" Nullable="false" />
+          <Property Name="ComContent" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="ComTime" Type="datetime" Nullable="false" />
+          <Property Name="UserID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="FoodReply">
+          <Key>
+            <PropertyRef Name="FoodReplyID" />
+          </Key>
+          <Property Name="FoodReplyID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FoodComID" Type="int" Nullable="false" />
+          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="ReplyTime" Type="datetime" Nullable="false" />
+          <Property Name="ReplyContent" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Manager">
+          <Key>
+            <PropertyRef Name="ManagerID" />
+          </Key>
+          <Property Name="ManagerID" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ManagerName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ManagerPass" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Menu">
+          <Key>
+            <PropertyRef Name="MenuID" />
+          </Key>
+          <Property Name="MenuID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MenuName" Type="nvarchar" MaxLength="50" />
+          <Property Name="MenuJS" Type="nvarchar(max)" />
+          <Property Name="MenuImage" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Special">
+          <Key>
+            <PropertyRef Name="SpecialID" />
+          </Key>
+          <Property Name="SpecialID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SpecialName" Type="nvarchar" MaxLength="50" />
+          <Property Name="SpecialJS" Type="nvarchar(max)" />
+          <Property Name="SpecialImage" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Tag">
+          <Key>
+            <PropertyRef Name="TagID" />
+          </Key>
+          <Property Name="TagID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="TagName" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="50" />
+          <Property Name="Sex" Type="nvarchar" MaxLength="50" />
+          <Property Name="HeadPic" Type="text" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“Foods.dbo.View_ArticleType”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="View_ArticleType">
+          <Key>
+            <PropertyRef Name="ArticleCategoryID" />
+            <PropertyRef Name="ArticleID" />
+            <PropertyRef Name="Title" />
+            <PropertyRef Name="Content" />
+            <PropertyRef Name="CreateTime" />
+            <PropertyRef Name="UserName" />
+          </Key>
+          <Property Name="ArticleCategoryID" Type="int" Nullable="false" />
+          <Property Name="ArticleCName" Type="nvarchar" MaxLength="50" />
+          <Property Name="ArticleID" Type="int" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Content" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="CreateTime" Type="datetime" Nullable="false" />
+          <Property Name="Picture" Type="nvarchar" MaxLength="50" />
+          <Property Name="HeadLine" Type="nvarchar" MaxLength="200" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="HeadPic" Type="text" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“Foods.dbo.View_ArticleUsers”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="View_ArticleUsers">
+          <Key>
+            <PropertyRef Name="ArticleID" />
+            <PropertyRef Name="Title" />
+            <PropertyRef Name="Content" />
+            <PropertyRef Name="UserID" />
+            <PropertyRef Name="CreateTime" />
+            <PropertyRef Name="UserName" />
+          </Key>
+          <Property Name="ArticleID" Type="int" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Content" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="CreateTime" Type="datetime" Nullable="false" />
+          <Property Name="ComAID" Type="int" />
+          <Property Name="ArticleCategoryID" Type="int" />
+          <Property Name="Picture" Type="nvarchar" MaxLength="50" />
+          <Property Name="HeadLine" Type="nvarchar" MaxLength="200" />
+          <Property Name="ArticleCategory" Type="nvarchar" MaxLength="200" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="50" />
+          <Property Name="HeadPic" Type="text" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“Foods.dbo.View_FoodUsers”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="View_FoodUsers">
+          <Key>
+            <PropertyRef Name="FoodID" />
+            <PropertyRef Name="FoodName" />
+            <PropertyRef Name="FoodImage" />
+            <PropertyRef Name="UserName" />
+          </Key>
+          <Property Name="FoodID" Type="int" Nullable="false" />
+          <Property Name="FoodName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="FoodImage" Type="text" Nullable="false" />
+          <Property Name="FoodVideo" Type="nvarchar" MaxLength="50" />
+          <Property Name="Notice" Type="nvarchar(max)" />
+          <Property Name="Setp1" Type="nvarchar(max)" />
+          <Property Name="Image1" Type="text" />
+          <Property Name="Step2" Type="nvarchar(max)" />
+          <Property Name="Image2" Type="text" />
+          <Property Name="Step3" Type="nvarchar(max)" />
+          <Property Name="Image3" Type="text" />
+          <Property Name="FoodCategoryID" Type="int" />
+          <Property Name="TagID" Type="int" />
+          <Property Name="UserID" Type="int" />
+          <Property Name="yuanliao" Type="nvarchar(max)" />
+          <Property Name="CTime" Type="datetime" />
+          <Property Name="MenuID" Type="int" />
+          <Property Name="SpecialID" Type="int" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="HeadPic" Type="text" />
+          <Property Name="Description" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“Foods.dbo.View_MenuFood”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="View_MenuFood">
+          <Key>
+            <PropertyRef Name="MenuID" />
+            <PropertyRef Name="FoodName" />
+            <PropertyRef Name="FoodImage" />
+            <PropertyRef Name="FoodID" />
+            <PropertyRef Name="UserName" />
+          </Key>
+          <Property Name="MenuName" Type="nvarchar" MaxLength="50" />
+          <Property Name="MenuID" Type="int" Nullable="false" />
+          <Property Name="MenuJS" Type="nvarchar(max)" />
+          <Property Name="MenuImage" Type="nvarchar(max)" />
+          <Property Name="FoodName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="FoodImage" Type="text" Nullable="false" />
+          <Property Name="FoodID" Type="int" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="HeadPic" Type="text" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“Foods.dbo.View_SpecialFood”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="View_SpecialFood">
+          <Key>
+            <PropertyRef Name="FoodID" />
+            <PropertyRef Name="FoodName" />
+            <PropertyRef Name="FoodImage" />
+            <PropertyRef Name="UserName" />
+            <PropertyRef Name="SpecialID" />
+          </Key>
+          <Property Name="FoodID" Type="int" Nullable="false" />
+          <Property Name="FoodName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="FoodImage" Type="text" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="HeadPic" Type="text" />
+          <Property Name="SpecialID" Type="int" Nullable="false" />
+          <Property Name="SpecialName" Type="nvarchar" MaxLength="50" />
+          <Property Name="SpecialJS" Type="nvarchar(max)" />
+          <Property Name="SpecialImage" Type="nvarchar(max)" />
+        </EntityType>
+        <Association Name="FK_ArticleCom_Articles">
+          <End Role="Articles" Type="Self.Articles" Multiplicity="1" />
+          <End Role="ArticleCom" Type="Self.ArticleCom" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Articles">
+              <PropertyRef Name="ArticleID" />
+            </Principal>
+            <Dependent Role="ArticleCom">
+              <PropertyRef Name="ArticleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ArticleCom_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="ArticleCom" Type="Self.ArticleCom" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="ArticleCom">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ArticleReply_ArticleCom">
+          <End Role="ArticleCom" Type="Self.ArticleCom" Multiplicity="1" />
+          <End Role="ArticleReply" Type="Self.ArticleReply" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ArticleCom">
+              <PropertyRef Name="ArticleComID" />
+            </Principal>
+            <Dependent Role="ArticleReply">
+              <PropertyRef Name="ArticleComID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ArticleReply_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="ArticleReply" Type="Self.ArticleReply" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="ArticleReply">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Articles_ArticleCategory">
+          <End Role="ArticleCategory" Type="Self.ArticleCategory" Multiplicity="0..1" />
+          <End Role="Articles" Type="Self.Articles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ArticleCategory">
+              <PropertyRef Name="ArticleCategoryID" />
+            </Principal>
+            <Dependent Role="Articles">
+              <PropertyRef Name="ArticleCategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Articles_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="Articles" Type="Self.Articles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="Articles">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Collect_Articles">
+          <End Role="Articles" Type="Self.Articles" Multiplicity="0..1" />
+          <End Role="Collect" Type="Self.Collect" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Articles">
+              <PropertyRef Name="ArticleID" />
+            </Principal>
+            <Dependent Role="Collect">
+              <PropertyRef Name="ArticleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Collect_Food">
+          <End Role="Food" Type="Self.Food" Multiplicity="0..1" />
+          <End Role="Collect" Type="Self.Collect" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Food">
+              <PropertyRef Name="FoodID" />
+            </Principal>
+            <Dependent Role="Collect">
+              <PropertyRef Name="FoodID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Collect_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+          <End Role="Collect" Type="Self.Collect" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="Collect">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Food_FoodCategory">
+          <End Role="FoodCategory" Type="Self.FoodCategory" Multiplicity="0..1" />
+          <End Role="Food" Type="Self.Food" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FoodCategory">
+              <PropertyRef Name="FoodCategoryID" />
+            </Principal>
+            <Dependent Role="Food">
+              <PropertyRef Name="FoodCategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Food_Menu">
+          <End Role="Menu" Type="Self.Menu" Multiplicity="0..1" />
+          <End Role="Food" Type="Self.Food" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Menu">
+              <PropertyRef Name="MenuID" />
+            </Principal>
+            <Dependent Role="Food">
+              <PropertyRef Name="MenuID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Food_Special">
+          <End Role="Special" Type="Self.Special" Multiplicity="0..1" />
+          <End Role="Food" Type="Self.Food" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Special">
+              <PropertyRef Name="SpecialID" />
+            </Principal>
+            <Dependent Role="Food">
+              <PropertyRef Name="SpecialID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Food_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+          <End Role="Food" Type="Self.Food" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="Food">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FoodCom_Food">
+          <End Role="Food" Type="Self.Food" Multiplicity="1" />
+          <End Role="FoodCom" Type="Self.FoodCom" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Food">
+              <PropertyRef Name="FoodID" />
+            </Principal>
+            <Dependent Role="FoodCom">
+              <PropertyRef Name="FoodID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FoodCom_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="FoodCom" Type="Self.FoodCom" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="FoodCom">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FoodReply_FoodCom">
+          <End Role="FoodCom" Type="Self.FoodCom" Multiplicity="1" />
+          <End Role="FoodReply" Type="Self.FoodReply" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="FoodCom">
+              <PropertyRef Name="FoodComID" />
+            </Principal>
+            <Dependent Role="FoodReply">
+              <PropertyRef Name="FoodReplyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FoodReply_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="FoodReply" Type="Self.FoodReply" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="FoodReply">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tag_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="Tag" Type="Self.Tag" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="Tag">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="FoodsModelStoreContainer">
+          <EntitySet Name="ArticleCategory" EntityType="Self.ArticleCategory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ArticleCom" EntityType="Self.ArticleCom" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ArticleReply" EntityType="Self.ArticleReply" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Articles" EntityType="Self.Articles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Collect" EntityType="Self.Collect" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Food" EntityType="Self.Food" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FoodCategory" EntityType="Self.FoodCategory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FoodCom" EntityType="Self.FoodCom" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FoodReply" EntityType="Self.FoodReply" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Manager" EntityType="Self.Manager" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Menu" EntityType="Self.Menu" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Special" EntityType="Self.Special" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tag" EntityType="Self.Tag" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="View_ArticleType" EntityType="Self.View_ArticleType" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [View_ArticleType].[ArticleCategoryID] AS [ArticleCategoryID], 
+    [View_ArticleType].[ArticleCName] AS [ArticleCName], 
+    [View_ArticleType].[ArticleID] AS [ArticleID], 
+    [View_ArticleType].[Title] AS [Title], 
+    [View_ArticleType].[Content] AS [Content], 
+    [View_ArticleType].[CreateTime] AS [CreateTime], 
+    [View_ArticleType].[Picture] AS [Picture], 
+    [View_ArticleType].[HeadLine] AS [HeadLine], 
+    [View_ArticleType].[UserName] AS [UserName], 
+    [View_ArticleType].[HeadPic] AS [HeadPic]
+    FROM [dbo].[View_ArticleType] AS [View_ArticleType]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="View_ArticleUsers" EntityType="Self.View_ArticleUsers" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [View_ArticleUsers].[ArticleID] AS [ArticleID], 
+    [View_ArticleUsers].[Title] AS [Title], 
+    [View_ArticleUsers].[Content] AS [Content], 
+    [View_ArticleUsers].[UserID] AS [UserID], 
+    [View_ArticleUsers].[CreateTime] AS [CreateTime], 
+    [View_ArticleUsers].[ComAID] AS [ComAID], 
+    [View_ArticleUsers].[ArticleCategoryID] AS [ArticleCategoryID], 
+    [View_ArticleUsers].[Picture] AS [Picture], 
+    [View_ArticleUsers].[HeadLine] AS [HeadLine], 
+    [View_ArticleUsers].[ArticleCategory] AS [ArticleCategory], 
+    [View_ArticleUsers].[UserName] AS [UserName], 
+    [View_ArticleUsers].[Description] AS [Description], 
+    [View_ArticleUsers].[HeadPic] AS [HeadPic]
+    FROM [dbo].[View_ArticleUsers] AS [View_ArticleUsers]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="View_FoodUsers" EntityType="Self.View_FoodUsers" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [View_FoodUsers].[FoodID] AS [FoodID], 
+    [View_FoodUsers].[FoodName] AS [FoodName], 
+    [View_FoodUsers].[FoodImage] AS [FoodImage], 
+    [View_FoodUsers].[FoodVideo] AS [FoodVideo], 
+    [View_FoodUsers].[Notice] AS [Notice], 
+    [View_FoodUsers].[Setp1] AS [Setp1], 
+    [View_FoodUsers].[Image1] AS [Image1], 
+    [View_FoodUsers].[Step2] AS [Step2], 
+    [View_FoodUsers].[Image2] AS [Image2], 
+    [View_FoodUsers].[Step3] AS [Step3], 
+    [View_FoodUsers].[Image3] AS [Image3], 
+    [View_FoodUsers].[FoodCategoryID] AS [FoodCategoryID], 
+    [View_FoodUsers].[TagID] AS [TagID], 
+    [View_FoodUsers].[UserID] AS [UserID], 
+    [View_FoodUsers].[yuanliao] AS [yuanliao], 
+    [View_FoodUsers].[CTime] AS [CTime], 
+    [View_FoodUsers].[MenuID] AS [MenuID], 
+    [View_FoodUsers].[SpecialID] AS [SpecialID], 
+    [View_FoodUsers].[UserName] AS [UserName], 
+    [View_FoodUsers].[HeadPic] AS [HeadPic], 
+    [View_FoodUsers].[Description] AS [Description]
+    FROM [dbo].[View_FoodUsers] AS [View_FoodUsers]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="View_MenuFood" EntityType="Self.View_MenuFood" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [View_MenuFood].[MenuName] AS [MenuName], 
+    [View_MenuFood].[MenuID] AS [MenuID], 
+    [View_MenuFood].[MenuJS] AS [MenuJS], 
+    [View_MenuFood].[MenuImage] AS [MenuImage], 
+    [View_MenuFood].[FoodName] AS [FoodName], 
+    [View_MenuFood].[FoodImage] AS [FoodImage], 
+    [View_MenuFood].[FoodID] AS [FoodID], 
+    [View_MenuFood].[UserName] AS [UserName], 
+    [View_MenuFood].[HeadPic] AS [HeadPic]
+    FROM [dbo].[View_MenuFood] AS [View_MenuFood]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="View_SpecialFood" EntityType="Self.View_SpecialFood" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [View_SpecialFood].[FoodID] AS [FoodID], 
+    [View_SpecialFood].[FoodName] AS [FoodName], 
+    [View_SpecialFood].[FoodImage] AS [FoodImage], 
+    [View_SpecialFood].[UserName] AS [UserName], 
+    [View_SpecialFood].[HeadPic] AS [HeadPic], 
+    [View_SpecialFood].[SpecialID] AS [SpecialID], 
+    [View_SpecialFood].[SpecialName] AS [SpecialName], 
+    [View_SpecialFood].[SpecialJS] AS [SpecialJS], 
+    [View_SpecialFood].[SpecialImage] AS [SpecialImage]
+    FROM [dbo].[View_SpecialFood] AS [View_SpecialFood]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_ArticleCom_Articles" Association="Self.FK_ArticleCom_Articles">
+            <End Role="Articles" EntitySet="Articles" />
+            <End Role="ArticleCom" EntitySet="ArticleCom" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ArticleCom_Users" Association="Self.FK_ArticleCom_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="ArticleCom" EntitySet="ArticleCom" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ArticleReply_ArticleCom" Association="Self.FK_ArticleReply_ArticleCom">
+            <End Role="ArticleCom" EntitySet="ArticleCom" />
+            <End Role="ArticleReply" EntitySet="ArticleReply" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ArticleReply_Users" Association="Self.FK_ArticleReply_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="ArticleReply" EntitySet="ArticleReply" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Articles_ArticleCategory" Association="Self.FK_Articles_ArticleCategory">
+            <End Role="ArticleCategory" EntitySet="ArticleCategory" />
+            <End Role="Articles" EntitySet="Articles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Articles_Users" Association="Self.FK_Articles_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Articles" EntitySet="Articles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Collect_Articles" Association="Self.FK_Collect_Articles">
+            <End Role="Articles" EntitySet="Articles" />
+            <End Role="Collect" EntitySet="Collect" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Collect_Food" Association="Self.FK_Collect_Food">
+            <End Role="Food" EntitySet="Food" />
+            <End Role="Collect" EntitySet="Collect" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Collect_Users" Association="Self.FK_Collect_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Collect" EntitySet="Collect" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Food_FoodCategory" Association="Self.FK_Food_FoodCategory">
+            <End Role="FoodCategory" EntitySet="FoodCategory" />
+            <End Role="Food" EntitySet="Food" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Food_Menu" Association="Self.FK_Food_Menu">
+            <End Role="Menu" EntitySet="Menu" />
+            <End Role="Food" EntitySet="Food" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Food_Special" Association="Self.FK_Food_Special">
+            <End Role="Special" EntitySet="Special" />
+            <End Role="Food" EntitySet="Food" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Food_Users" Association="Self.FK_Food_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Food" EntitySet="Food" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FoodCom_Food" Association="Self.FK_FoodCom_Food">
+            <End Role="Food" EntitySet="Food" />
+            <End Role="FoodCom" EntitySet="FoodCom" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FoodCom_Users" Association="Self.FK_FoodCom_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="FoodCom" EntitySet="FoodCom" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FoodReply_FoodCom" Association="Self.FK_FoodReply_FoodCom">
+            <End Role="FoodCom" EntitySet="FoodCom" />
+            <End Role="FoodReply" EntitySet="FoodReply" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FoodReply_Users" Association="Self.FK_FoodReply_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="FoodReply" EntitySet="FoodReply" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tag_Users" Association="Self.FK_Tag_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Tag" EntitySet="Tag" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="FoodsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="ArticleCategory">
+          <Key>
+            <PropertyRef Name="ArticleCategoryID" />
+          </Key>
+          <Property Name="ArticleCategoryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ArticleCName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Articles" Relationship="Self.FK_Articles_ArticleCategory" FromRole="ArticleCategory" ToRole="Articles" />
+        </EntityType>
+        <EntityType Name="ArticleCom">
+          <Key>
+            <PropertyRef Name="ArticleComID" />
+          </Key>
+          <Property Name="ArticleComID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ArticleID" Type="Int32" Nullable="false" />
+          <Property Name="ComContent" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ComTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Articles" Relationship="Self.FK_ArticleCom_Articles" FromRole="ArticleCom" ToRole="Articles" />
+          <NavigationProperty Name="Users" Relationship="Self.FK_ArticleCom_Users" FromRole="ArticleCom" ToRole="Users" />
+          <NavigationProperty Name="ArticleReply" Relationship="Self.FK_ArticleReply_ArticleCom" FromRole="ArticleCom" ToRole="ArticleReply" />
+        </EntityType>
+        <EntityType Name="ArticleReply">
+          <Key>
+            <PropertyRef Name="ArticleReplyID" />
+          </Key>
+          <Property Name="ArticleReplyID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ArticleComID" Type="Int32" Nullable="false" />
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="ReplyTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ReplyContent" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="ArticleCom" Relationship="Self.FK_ArticleReply_ArticleCom" FromRole="ArticleReply" ToRole="ArticleCom" />
+          <NavigationProperty Name="Users" Relationship="Self.FK_ArticleReply_Users" FromRole="ArticleReply" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="Articles">
+          <Key>
+            <PropertyRef Name="ArticleID" />
+          </Key>
+          <Property Name="ArticleID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="CreateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ComAID" Type="Int32" />
+          <Property Name="ArticleCategoryID" Type="Int32" />
+          <Property Name="Picture" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="HeadLine" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="ArticleCategory" Relationship="Self.FK_Articles_ArticleCategory" FromRole="Articles" ToRole="ArticleCategory" />
+          <NavigationProperty Name="ArticleCom" Relationship="Self.FK_ArticleCom_Articles" FromRole="Articles" ToRole="ArticleCom" />
+          <NavigationProperty Name="Users" Relationship="Self.FK_Articles_Users" FromRole="Articles" ToRole="Users" />
+          <NavigationProperty Name="Collect" Relationship="Self.FK_Collect_Articles" FromRole="Articles" ToRole="Collect" />
+          <Property Name="ArticleCategory1" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Collect">
+          <Key>
+            <PropertyRef Name="CollectID" />
+          </Key>
+          <Property Name="CollectID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FoodID" Type="Int32" />
+          <Property Name="ArticleID" Type="Int32" />
+          <Property Name="UserID" Type="Int32" />
+          <NavigationProperty Name="Articles" Relationship="Self.FK_Collect_Articles" FromRole="Collect" ToRole="Articles" />
+          <NavigationProperty Name="Food" Relationship="Self.FK_Collect_Food" FromRole="Collect" ToRole="Food" />
+          <NavigationProperty Name="Users" Relationship="Self.FK_Collect_Users" FromRole="Collect" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="Food">
+          <Key>
+            <PropertyRef Name="FoodID" />
+          </Key>
+          <Property Name="FoodID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FoodName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="FoodImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FoodVideo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Notice" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Setp1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Image1" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Step2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Image2" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Step3" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Image3" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="FoodCategoryID" Type="Int32" />
+          <Property Name="TagID" Type="Int32" />
+          <Property Name="UserID" Type="Int32" />
+          <Property Name="yuanliao" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CTime" Type="DateTime" Precision="3" />
+          <Property Name="MenuID" Type="Int32" />
+          <Property Name="SpecialID" Type="Int32" />
+          <NavigationProperty Name="Collect" Relationship="Self.FK_Collect_Food" FromRole="Food" ToRole="Collect" />
+          <NavigationProperty Name="FoodCategory" Relationship="Self.FK_Food_FoodCategory" FromRole="Food" ToRole="FoodCategory" />
+          <NavigationProperty Name="Menu" Relationship="Self.FK_Food_Menu" FromRole="Food" ToRole="Menu" />
+          <NavigationProperty Name="Special" Relationship="Self.FK_Food_Special" FromRole="Food" ToRole="Special" />
+          <NavigationProperty Name="Users" Relationship="Self.FK_Food_Users" FromRole="Food" ToRole="Users" />
+          <NavigationProperty Name="FoodCom" Relationship="Self.FK_FoodCom_Food" FromRole="Food" ToRole="FoodCom" />
+        </EntityType>
+        <EntityType Name="FoodCategory">
+          <Key>
+            <PropertyRef Name="FoodCategoryID" />
+          </Key>
+          <Property Name="FoodCategoryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FoodCName" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Food" Relationship="Self.FK_Food_FoodCategory" FromRole="FoodCategory" ToRole="Food" />
+        </EntityType>
+        <EntityType Name="FoodCom">
+          <Key>
+            <PropertyRef Name="FoodComID" />
+          </Key>
+          <Property Name="FoodComID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FoodID" Type="Int32" Nullable="false" />
+          <Property Name="ComContent" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ComTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Food" Relationship="Self.FK_FoodCom_Food" FromRole="FoodCom" ToRole="Food" />
+          <NavigationProperty Name="Users" Relationship="Self.FK_FoodCom_Users" FromRole="FoodCom" ToRole="Users" />
+          <NavigationProperty Name="FoodReply" Relationship="Self.FK_FoodReply_FoodCom" FromRole="FoodCom" ToRole="FoodReply" />
+          <NavigationProperty Name="FoodReply1" Relationship="FoodsModel.FK_FoodReply_FoodCom1" FromRole="FoodCom" ToRole="FoodReply" />
+        </EntityType>
+        <EntityType Name="FoodReply">
+          <Key>
+            <PropertyRef Name="FoodReplyID" />
+          </Key>
+          <Property Name="FoodReplyID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FoodComID" Type="Int32" Nullable="false" />
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="ReplyTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ReplyContent" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="FoodCom" Relationship="Self.FK_FoodReply_FoodCom" FromRole="FoodReply" ToRole="FoodCom" />
+          <NavigationProperty Name="Users" Relationship="Self.FK_FoodReply_Users" FromRole="FoodReply" ToRole="Users" />
+          <NavigationProperty Name="FoodCom1" Relationship="FoodsModel.FK_FoodReply_FoodCom1" FromRole="FoodReply" ToRole="FoodCom" />
+        </EntityType>
+        <EntityType Name="Manager">
+          <Key>
+            <PropertyRef Name="ManagerID" />
+          </Key>
+          <Property Name="ManagerID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ManagerName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ManagerPass" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Menu">
+          <Key>
+            <PropertyRef Name="MenuID" />
+          </Key>
+          <Property Name="MenuID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MenuName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MenuJS" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="MenuImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Food" Relationship="Self.FK_Food_Menu" FromRole="Menu" ToRole="Food" />
+        </EntityType>
+        <EntityType Name="Special">
+          <Key>
+            <PropertyRef Name="SpecialID" />
+          </Key>
+          <Property Name="SpecialID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SpecialName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SpecialJS" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SpecialImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Food" Relationship="Self.FK_Food_Special" FromRole="Special" ToRole="Food" />
+        </EntityType>
+        <EntityType Name="Tag">
+          <Key>
+            <PropertyRef Name="TagID" />
+          </Key>
+          <Property Name="TagID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="TagName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Users" Relationship="Self.FK_Tag_Users" FromRole="Tag" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Sex" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="HeadPic" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="ArticleCom" Relationship="Self.FK_ArticleCom_Users" FromRole="Users" ToRole="ArticleCom" />
+          <NavigationProperty Name="ArticleReply" Relationship="Self.FK_ArticleReply_Users" FromRole="Users" ToRole="ArticleReply" />
+          <NavigationProperty Name="Articles" Relationship="Self.FK_Articles_Users" FromRole="Users" ToRole="Articles" />
+          <NavigationProperty Name="Collect" Relationship="Self.FK_Collect_Users" FromRole="Users" ToRole="Collect" />
+          <NavigationProperty Name="Food" Relationship="Self.FK_Food_Users" FromRole="Users" ToRole="Food" />
+          <NavigationProperty Name="FoodCom" Relationship="Self.FK_FoodCom_Users" FromRole="Users" ToRole="FoodCom" />
+          <NavigationProperty Name="FoodReply" Relationship="Self.FK_FoodReply_Users" FromRole="Users" ToRole="FoodReply" />
+          <NavigationProperty Name="Tag" Relationship="Self.FK_Tag_Users" FromRole="Users" ToRole="Tag" />
+        </EntityType>
+        <EntityType Name="View_ArticleUsers">
+          <Key>
+            <PropertyRef Name="ArticleID" />
+            <PropertyRef Name="Title" />
+            <PropertyRef Name="Content" />
+            <PropertyRef Name="UserID" />
+            <PropertyRef Name="CreateTime" />
+            <PropertyRef Name="UserName" />
+          </Key>
+          <Property Name="ArticleID" Type="Int32" Nullable="false" />
+          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="CreateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ComAID" Type="Int32" />
+          <Property Name="ArticleCategoryID" Type="Int32" />
+          <Property Name="Picture" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="HeadLine" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="HeadPic" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ArticleCategory" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="View_FoodUsers">
+          <Key>
+            <PropertyRef Name="FoodID" />
+            <PropertyRef Name="FoodName" />
+            <PropertyRef Name="FoodImage" />
+            <PropertyRef Name="UserName" />
+          </Key>
+          <Property Name="FoodID" Type="Int32" Nullable="false" />
+          <Property Name="FoodName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="FoodImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FoodVideo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Notice" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Setp1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Image1" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Step2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Image2" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Step3" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Image3" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="FoodCategoryID" Type="Int32" />
+          <Property Name="TagID" Type="Int32" />
+          <Property Name="UserID" Type="Int32" />
+          <Property Name="yuanliao" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CTime" Type="DateTime" Precision="3" />
+          <Property Name="MenuID" Type="Int32" />
+          <Property Name="SpecialID" Type="Int32" />
+          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="HeadPic" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="View_MenuFood">
+          <Key>
+            <PropertyRef Name="MenuID" />
+            <PropertyRef Name="FoodName" />
+            <PropertyRef Name="FoodImage" />
+            <PropertyRef Name="FoodID" />
+            <PropertyRef Name="UserName" />
+          </Key>
+          <Property Name="MenuName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MenuID" Type="Int32" Nullable="false" />
+          <Property Name="MenuJS" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="MenuImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="FoodName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="FoodImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FoodID" Type="Int32" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="HeadPic" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="View_SpecialFood">
+          <Key>
+            <PropertyRef Name="FoodID" />
+            <PropertyRef Name="FoodName" />
+            <PropertyRef Name="FoodImage" />
+            <PropertyRef Name="UserName" />
+            <PropertyRef Name="SpecialID" />
+          </Key>
+          <Property Name="FoodID" Type="Int32" Nullable="false" />
+          <Property Name="FoodName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="FoodImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="HeadPic" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="SpecialID" Type="Int32" Nullable="false" />
+          <Property Name="SpecialName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SpecialJS" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SpecialImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <Association Name="FK_Articles_ArticleCategory">
+          <End Role="ArticleCategory" Type="Self.ArticleCategory" Multiplicity="0..1" />
+          <End Role="Articles" Type="Self.Articles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ArticleCategory">
+              <PropertyRef Name="ArticleCategoryID" />
+            </Principal>
+            <Dependent Role="Articles">
+              <PropertyRef Name="ArticleCategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ArticleCom_Articles">
+          <End Role="Articles" Type="Self.Articles" Multiplicity="1" />
+          <End Role="ArticleCom" Type="Self.ArticleCom" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Articles">
+              <PropertyRef Name="ArticleID" />
+            </Principal>
+            <Dependent Role="ArticleCom">
+              <PropertyRef Name="ArticleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ArticleCom_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="ArticleCom" Type="Self.ArticleCom" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="ArticleCom">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ArticleReply_ArticleCom">
+          <End Role="ArticleCom" Type="Self.ArticleCom" Multiplicity="1" />
+          <End Role="ArticleReply" Type="Self.ArticleReply" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ArticleCom">
+              <PropertyRef Name="ArticleComID" />
+            </Principal>
+            <Dependent Role="ArticleReply">
+              <PropertyRef Name="ArticleComID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ArticleReply_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="ArticleReply" Type="Self.ArticleReply" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="ArticleReply">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Articles_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="Articles" Type="Self.Articles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="Articles">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Collect_Articles">
+          <End Role="Articles" Type="Self.Articles" Multiplicity="0..1" />
+          <End Role="Collect" Type="Self.Collect" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Articles">
+              <PropertyRef Name="ArticleID" />
+            </Principal>
+            <Dependent Role="Collect">
+              <PropertyRef Name="ArticleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Collect_Food">
+          <End Role="Food" Type="Self.Food" Multiplicity="0..1" />
+          <End Role="Collect" Type="Self.Collect" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Food">
+              <PropertyRef Name="FoodID" />
+            </Principal>
+            <Dependent Role="Collect">
+              <PropertyRef Name="FoodID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Collect_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+          <End Role="Collect" Type="Self.Collect" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="Collect">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Food_FoodCategory">
+          <End Role="FoodCategory" Type="Self.FoodCategory" Multiplicity="0..1" />
+          <End Role="Food" Type="Self.Food" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FoodCategory">
+              <PropertyRef Name="FoodCategoryID" />
+            </Principal>
+            <Dependent Role="Food">
+              <PropertyRef Name="FoodCategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Food_Menu">
+          <End Role="Menu" Type="Self.Menu" Multiplicity="0..1" />
+          <End Role="Food" Type="Self.Food" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Menu">
+              <PropertyRef Name="MenuID" />
+            </Principal>
+            <Dependent Role="Food">
+              <PropertyRef Name="MenuID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Food_Special">
+          <End Role="Special" Type="Self.Special" Multiplicity="0..1" />
+          <End Role="Food" Type="Self.Food" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Special">
+              <PropertyRef Name="SpecialID" />
+            </Principal>
+            <Dependent Role="Food">
+              <PropertyRef Name="SpecialID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Food_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+          <End Role="Food" Type="Self.Food" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="Food">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FoodCom_Food">
+          <End Role="Food" Type="Self.Food" Multiplicity="1" />
+          <End Role="FoodCom" Type="Self.FoodCom" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Food">
+              <PropertyRef Name="FoodID" />
+            </Principal>
+            <Dependent Role="FoodCom">
+              <PropertyRef Name="FoodID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FoodCom_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="FoodCom" Type="Self.FoodCom" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="FoodCom">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FoodReply_FoodCom">
+          <End Role="FoodCom" Type="Self.FoodCom" Multiplicity="1" />
+          <End Role="FoodReply" Type="Self.FoodReply" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FoodCom">
+              <PropertyRef Name="FoodComID" />
+            </Principal>
+            <Dependent Role="FoodReply">
+              <PropertyRef Name="FoodComID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FoodReply_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="FoodReply" Type="Self.FoodReply" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="FoodReply">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tag_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="Tag" Type="Self.Tag" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="Tag">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="FoodsEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ArticleCategory" EntityType="Self.ArticleCategory" />
+          <EntitySet Name="ArticleCom" EntityType="Self.ArticleCom" />
+          <EntitySet Name="ArticleReply" EntityType="Self.ArticleReply" />
+          <EntitySet Name="Articles" EntityType="Self.Articles" />
+          <EntitySet Name="Collect" EntityType="Self.Collect" />
+          <EntitySet Name="Food" EntityType="Self.Food" />
+          <EntitySet Name="FoodCategory" EntityType="Self.FoodCategory" />
+          <EntitySet Name="FoodCom" EntityType="Self.FoodCom" />
+          <EntitySet Name="FoodReply" EntityType="Self.FoodReply" />
+          <EntitySet Name="Manager" EntityType="Self.Manager" />
+          <EntitySet Name="Menu" EntityType="Self.Menu" />
+          <EntitySet Name="Special" EntityType="Self.Special" />
+          <EntitySet Name="Tag" EntityType="Self.Tag" />
+          <EntitySet Name="Users" EntityType="Self.Users" />
+          <EntitySet Name="View_ArticleUsers" EntityType="Self.View_ArticleUsers" />
+          <EntitySet Name="View_FoodUsers" EntityType="Self.View_FoodUsers" />
+          <EntitySet Name="View_MenuFood" EntityType="Self.View_MenuFood" />
+          <EntitySet Name="View_SpecialFood" EntityType="Self.View_SpecialFood" />
+          <AssociationSet Name="FK_Articles_ArticleCategory" Association="Self.FK_Articles_ArticleCategory">
+            <End Role="ArticleCategory" EntitySet="ArticleCategory" />
+            <End Role="Articles" EntitySet="Articles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ArticleCom_Articles" Association="Self.FK_ArticleCom_Articles">
+            <End Role="Articles" EntitySet="Articles" />
+            <End Role="ArticleCom" EntitySet="ArticleCom" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ArticleCom_Users" Association="Self.FK_ArticleCom_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="ArticleCom" EntitySet="ArticleCom" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ArticleReply_ArticleCom" Association="Self.FK_ArticleReply_ArticleCom">
+            <End Role="ArticleCom" EntitySet="ArticleCom" />
+            <End Role="ArticleReply" EntitySet="ArticleReply" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ArticleReply_Users" Association="Self.FK_ArticleReply_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="ArticleReply" EntitySet="ArticleReply" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Articles_Users" Association="Self.FK_Articles_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Articles" EntitySet="Articles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Collect_Articles" Association="Self.FK_Collect_Articles">
+            <End Role="Articles" EntitySet="Articles" />
+            <End Role="Collect" EntitySet="Collect" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Collect_Food" Association="Self.FK_Collect_Food">
+            <End Role="Food" EntitySet="Food" />
+            <End Role="Collect" EntitySet="Collect" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Collect_Users" Association="Self.FK_Collect_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Collect" EntitySet="Collect" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Food_FoodCategory" Association="Self.FK_Food_FoodCategory">
+            <End Role="FoodCategory" EntitySet="FoodCategory" />
+            <End Role="Food" EntitySet="Food" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Food_Menu" Association="Self.FK_Food_Menu">
+            <End Role="Menu" EntitySet="Menu" />
+            <End Role="Food" EntitySet="Food" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Food_Special" Association="Self.FK_Food_Special">
+            <End Role="Special" EntitySet="Special" />
+            <End Role="Food" EntitySet="Food" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Food_Users" Association="Self.FK_Food_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Food" EntitySet="Food" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FoodCom_Food" Association="Self.FK_FoodCom_Food">
+            <End Role="Food" EntitySet="Food" />
+            <End Role="FoodCom" EntitySet="FoodCom" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FoodCom_Users" Association="Self.FK_FoodCom_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="FoodCom" EntitySet="FoodCom" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FoodReply_FoodCom" Association="Self.FK_FoodReply_FoodCom">
+            <End Role="FoodCom" EntitySet="FoodCom" />
+            <End Role="FoodReply" EntitySet="FoodReply" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FoodReply_Users" Association="Self.FK_FoodReply_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="FoodReply" EntitySet="FoodReply" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tag_Users" Association="Self.FK_Tag_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Tag" EntitySet="Tag" />
+          </AssociationSet>
+          <EntitySet Name="View_ArticleType" EntityType="FoodsModel.View_ArticleType" />
+          <AssociationSet Name="FK_FoodReply_FoodCom1" Association="FoodsModel.FK_FoodReply_FoodCom1">
+            <End Role="FoodCom" EntitySet="FoodCom" />
+            <End Role="FoodReply" EntitySet="FoodReply" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="View_ArticleType">
+          <Key>
+            <PropertyRef Name="ArticleCategoryID" />
+            <PropertyRef Name="ArticleID" />
+            <PropertyRef Name="Title" />
+            <PropertyRef Name="Content" />
+            <PropertyRef Name="CreateTime" />
+            <PropertyRef Name="UserName" />
+          </Key>
+          <Property Name="ArticleCategoryID" Type="Int32" Nullable="false" />
+          <Property Name="ArticleCName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ArticleID" Type="Int32" Nullable="false" />
+          <Property Name="Title" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Content" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Picture" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="HeadLine" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="UserName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="HeadPic" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <Association Name="FK_FoodReply_FoodCom1">
+          <End Type="FoodsModel.FoodCom" Role="FoodCom" Multiplicity="1" />
+          <End Type="FoodsModel.FoodReply" Role="FoodReply" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="FoodCom">
+              <PropertyRef Name="FoodComID" />
+            </Principal>
+            <Dependent Role="FoodReply">
+              <PropertyRef Name="FoodReplyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="FoodsModelStoreContainer" CdmEntityContainer="FoodsEntities">
+          <EntitySetMapping Name="ArticleCategory">
+            <EntityTypeMapping TypeName="FoodsModel.ArticleCategory">
+              <MappingFragment StoreEntitySet="ArticleCategory">
+                <ScalarProperty Name="ArticleCategoryID" ColumnName="ArticleCategoryID" />
+                <ScalarProperty Name="ArticleCName" ColumnName="ArticleCName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ArticleCom">
+            <EntityTypeMapping TypeName="FoodsModel.ArticleCom">
+              <MappingFragment StoreEntitySet="ArticleCom">
+                <ScalarProperty Name="ArticleComID" ColumnName="ArticleComID" />
+                <ScalarProperty Name="ArticleID" ColumnName="ArticleID" />
+                <ScalarProperty Name="ComContent" ColumnName="ComContent" />
+                <ScalarProperty Name="ComTime" ColumnName="ComTime" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ArticleReply">
+            <EntityTypeMapping TypeName="FoodsModel.ArticleReply">
+              <MappingFragment StoreEntitySet="ArticleReply">
+                <ScalarProperty Name="ArticleReplyID" ColumnName="ArticleReplyID" />
+                <ScalarProperty Name="ArticleComID" ColumnName="ArticleComID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="ReplyTime" ColumnName="ReplyTime" />
+                <ScalarProperty Name="ReplyContent" ColumnName="ReplyContent" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Articles">
+            <EntityTypeMapping TypeName="FoodsModel.Articles">
+              <MappingFragment StoreEntitySet="Articles">
+                <ScalarProperty Name="ArticleCategory1" ColumnName="ArticleCategory" />
+                <ScalarProperty Name="ArticleID" ColumnName="ArticleID" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Content" ColumnName="Content" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="ComAID" ColumnName="ComAID" />
+                <ScalarProperty Name="ArticleCategoryID" ColumnName="ArticleCategoryID" />
+                <ScalarProperty Name="Picture" ColumnName="Picture" />
+                <ScalarProperty Name="HeadLine" ColumnName="HeadLine" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Collect">
+            <EntityTypeMapping TypeName="FoodsModel.Collect">
+              <MappingFragment StoreEntitySet="Collect">
+                <ScalarProperty Name="CollectID" ColumnName="CollectID" />
+                <ScalarProperty Name="FoodID" ColumnName="FoodID" />
+                <ScalarProperty Name="ArticleID" ColumnName="ArticleID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Food">
+            <EntityTypeMapping TypeName="FoodsModel.Food">
+              <MappingFragment StoreEntitySet="Food">
+                <ScalarProperty Name="FoodID" ColumnName="FoodID" />
+                <ScalarProperty Name="FoodName" ColumnName="FoodName" />
+                <ScalarProperty Name="FoodImage" ColumnName="FoodImage" />
+                <ScalarProperty Name="FoodVideo" ColumnName="FoodVideo" />
+                <ScalarProperty Name="Notice" ColumnName="Notice" />
+                <ScalarProperty Name="Setp1" ColumnName="Setp1" />
+                <ScalarProperty Name="Image1" ColumnName="Image1" />
+                <ScalarProperty Name="Step2" ColumnName="Step2" />
+                <ScalarProperty Name="Image2" ColumnName="Image2" />
+                <ScalarProperty Name="Step3" ColumnName="Step3" />
+                <ScalarProperty Name="Image3" ColumnName="Image3" />
+                <ScalarProperty Name="FoodCategoryID" ColumnName="FoodCategoryID" />
+                <ScalarProperty Name="TagID" ColumnName="TagID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="yuanliao" ColumnName="yuanliao" />
+                <ScalarProperty Name="CTime" ColumnName="CTime" />
+                <ScalarProperty Name="MenuID" ColumnName="MenuID" />
+                <ScalarProperty Name="SpecialID" ColumnName="SpecialID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FoodCategory">
+            <EntityTypeMapping TypeName="FoodsModel.FoodCategory">
+              <MappingFragment StoreEntitySet="FoodCategory">
+                <ScalarProperty Name="FoodCategoryID" ColumnName="FoodCategoryID" />
+                <ScalarProperty Name="FoodCName" ColumnName="FoodCName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FoodCom">
+            <EntityTypeMapping TypeName="FoodsModel.FoodCom">
+              <MappingFragment StoreEntitySet="FoodCom">
+                <ScalarProperty Name="FoodComID" ColumnName="FoodComID" />
+                <ScalarProperty Name="FoodID" ColumnName="FoodID" />
+                <ScalarProperty Name="ComContent" ColumnName="ComContent" />
+                <ScalarProperty Name="ComTime" ColumnName="ComTime" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FoodReply">
+            <EntityTypeMapping TypeName="FoodsModel.FoodReply">
+              <MappingFragment StoreEntitySet="FoodReply">
+                <ScalarProperty Name="FoodReplyID" ColumnName="FoodReplyID" />
+                <ScalarProperty Name="FoodComID" ColumnName="FoodComID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="ReplyTime" ColumnName="ReplyTime" />
+                <ScalarProperty Name="ReplyContent" ColumnName="ReplyContent" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Manager">
+            <EntityTypeMapping TypeName="FoodsModel.Manager">
+              <MappingFragment StoreEntitySet="Manager">
+                <ScalarProperty Name="ManagerID" ColumnName="ManagerID" />
+                <ScalarProperty Name="ManagerName" ColumnName="ManagerName" />
+                <ScalarProperty Name="ManagerPass" ColumnName="ManagerPass" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Menu">
+            <EntityTypeMapping TypeName="FoodsModel.Menu">
+              <MappingFragment StoreEntitySet="Menu">
+                <ScalarProperty Name="MenuID" ColumnName="MenuID" />
+                <ScalarProperty Name="MenuName" ColumnName="MenuName" />
+                <ScalarProperty Name="MenuJS" ColumnName="MenuJS" />
+                <ScalarProperty Name="MenuImage" ColumnName="MenuImage" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Special">
+            <EntityTypeMapping TypeName="FoodsModel.Special">
+              <MappingFragment StoreEntitySet="Special">
+                <ScalarProperty Name="SpecialID" ColumnName="SpecialID" />
+                <ScalarProperty Name="SpecialName" ColumnName="SpecialName" />
+                <ScalarProperty Name="SpecialJS" ColumnName="SpecialJS" />
+                <ScalarProperty Name="SpecialImage" ColumnName="SpecialImage" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tag">
+            <EntityTypeMapping TypeName="FoodsModel.Tag">
+              <MappingFragment StoreEntitySet="Tag">
+                <ScalarProperty Name="TagID" ColumnName="TagID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="TagName" ColumnName="TagName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="FoodsModel.Users">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Sex" ColumnName="Sex" />
+                <ScalarProperty Name="HeadPic" ColumnName="HeadPic" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="View_ArticleUsers">
+            <EntityTypeMapping TypeName="FoodsModel.View_ArticleUsers">
+              <MappingFragment StoreEntitySet="View_ArticleUsers">
+                <ScalarProperty Name="ArticleCategory" ColumnName="ArticleCategory" />
+                <ScalarProperty Name="ArticleID" ColumnName="ArticleID" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Content" ColumnName="Content" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="ComAID" ColumnName="ComAID" />
+                <ScalarProperty Name="ArticleCategoryID" ColumnName="ArticleCategoryID" />
+                <ScalarProperty Name="Picture" ColumnName="Picture" />
+                <ScalarProperty Name="HeadLine" ColumnName="HeadLine" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="HeadPic" ColumnName="HeadPic" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="View_FoodUsers">
+            <EntityTypeMapping TypeName="FoodsModel.View_FoodUsers">
+              <MappingFragment StoreEntitySet="View_FoodUsers">
+                <ScalarProperty Name="FoodID" ColumnName="FoodID" />
+                <ScalarProperty Name="FoodName" ColumnName="FoodName" />
+                <ScalarProperty Name="FoodImage" ColumnName="FoodImage" />
+                <ScalarProperty Name="FoodVideo" ColumnName="FoodVideo" />
+                <ScalarProperty Name="Notice" ColumnName="Notice" />
+                <ScalarProperty Name="Setp1" ColumnName="Setp1" />
+                <ScalarProperty Name="Image1" ColumnName="Image1" />
+                <ScalarProperty Name="Step2" ColumnName="Step2" />
+                <ScalarProperty Name="Image2" ColumnName="Image2" />
+                <ScalarProperty Name="Step3" ColumnName="Step3" />
+                <ScalarProperty Name="Image3" ColumnName="Image3" />
+                <ScalarProperty Name="FoodCategoryID" ColumnName="FoodCategoryID" />
+                <ScalarProperty Name="TagID" ColumnName="TagID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="yuanliao" ColumnName="yuanliao" />
+                <ScalarProperty Name="CTime" ColumnName="CTime" />
+                <ScalarProperty Name="MenuID" ColumnName="MenuID" />
+                <ScalarProperty Name="SpecialID" ColumnName="SpecialID" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="HeadPic" ColumnName="HeadPic" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="View_MenuFood">
+            <EntityTypeMapping TypeName="FoodsModel.View_MenuFood">
+              <MappingFragment StoreEntitySet="View_MenuFood">
+                <ScalarProperty Name="MenuName" ColumnName="MenuName" />
+                <ScalarProperty Name="MenuID" ColumnName="MenuID" />
+                <ScalarProperty Name="MenuJS" ColumnName="MenuJS" />
+                <ScalarProperty Name="MenuImage" ColumnName="MenuImage" />
+                <ScalarProperty Name="FoodName" ColumnName="FoodName" />
+                <ScalarProperty Name="FoodImage" ColumnName="FoodImage" />
+                <ScalarProperty Name="FoodID" ColumnName="FoodID" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="HeadPic" ColumnName="HeadPic" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="View_SpecialFood">
+            <EntityTypeMapping TypeName="FoodsModel.View_SpecialFood">
+              <MappingFragment StoreEntitySet="View_SpecialFood">
+                <ScalarProperty Name="FoodID" ColumnName="FoodID" />
+                <ScalarProperty Name="FoodName" ColumnName="FoodName" />
+                <ScalarProperty Name="FoodImage" ColumnName="FoodImage" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="HeadPic" ColumnName="HeadPic" />
+                <ScalarProperty Name="SpecialID" ColumnName="SpecialID" />
+                <ScalarProperty Name="SpecialName" ColumnName="SpecialName" />
+                <ScalarProperty Name="SpecialJS" ColumnName="SpecialJS" />
+                <ScalarProperty Name="SpecialImage" ColumnName="SpecialImage" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="View_ArticleType">
+            <EntityTypeMapping TypeName="FoodsModel.View_ArticleType">
+              <MappingFragment StoreEntitySet="View_ArticleType">
+                <ScalarProperty Name="HeadPic" ColumnName="HeadPic" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="HeadLine" ColumnName="HeadLine" />
+                <ScalarProperty Name="Picture" ColumnName="Picture" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="Content" ColumnName="Content" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="ArticleID" ColumnName="ArticleID" />
+                <ScalarProperty Name="ArticleCName" ColumnName="ArticleCName" />
+                <ScalarProperty Name="ArticleCategoryID" ColumnName="ArticleCategoryID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="无" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

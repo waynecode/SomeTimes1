@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="531b3e33ba1148c7b0f7ae7f8ea0f869" Name="Diagram1">
+        <EntityTypeShape EntityType="FoodsModel.ArticleCategory" Width="1.5" PointX="3.75" PointY="11.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="FoodsModel.ArticleCom" Width="1.5" PointX="3" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="FoodsModel.ArticleReply" Width="1.5" PointX="8.25" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="FoodsModel.Articles" Width="1.5" PointX="6" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="FoodsModel.Collect" Width="1.5" PointX="8.25" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="FoodsModel.Food" Width="1.5" PointX="3" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="FoodsModel.FoodCategory" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FoodsModel.FoodCom" Width="1.5" PointX="5.25" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="FoodsModel.FoodReply" Width="1.5" PointX="10.5" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="FoodsModel.Manager" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FoodsModel.Menu" Width="1.5" PointX="0.75" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="FoodsModel.Special" Width="1.5" PointX="0.75" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FoodsModel.Tag" Width="1.5" PointX="3" PointY="21.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="FoodsModel.Users" Width="1.5" PointX="0.75" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="FoodsModel.View_ArticleUsers" Width="1.5" PointX="10.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FoodsModel.View_FoodUsers" Width="1.5" PointX="10.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FoodsModel.View_MenuFood" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FoodsModel.View_SpecialFood" Width="1.5" PointX="5.75" PointY="11.75" IsExpanded="true" />
+        <AssociationConnector Association="FoodsModel.FK_Articles_ArticleCategory" ManuallyRouted="false" />
+        <AssociationConnector Association="FoodsModel.FK_ArticleCom_Articles" ManuallyRouted="false" />
+        <AssociationConnector Association="FoodsModel.FK_ArticleCom_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="FoodsModel.FK_ArticleReply_ArticleCom" ManuallyRouted="false" />
+        <AssociationConnector Association="FoodsModel.FK_ArticleReply_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="FoodsModel.FK_Articles_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="FoodsModel.FK_Collect_Articles" ManuallyRouted="false" />
+        <AssociationConnector Association="FoodsModel.FK_Collect_Food" ManuallyRouted="false" />
+        <AssociationConnector Association="FoodsModel.FK_Collect_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="FoodsModel.FK_Food_FoodCategory" ManuallyRouted="false" />
+        <AssociationConnector Association="FoodsModel.FK_Food_Menu" ManuallyRouted="false" />
+        <AssociationConnector Association="FoodsModel.FK_Food_Special" ManuallyRouted="false" />
+        <AssociationConnector Association="FoodsModel.FK_Food_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="FoodsModel.FK_FoodCom_Food" ManuallyRouted="false" />
+        <AssociationConnector Association="FoodsModel.FK_FoodCom_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="FoodsModel.FK_FoodReply_FoodCom" ManuallyRouted="false" />
+        <AssociationConnector Association="FoodsModel.FK_FoodReply_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="FoodsModel.FK_Tag_Users" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="FoodsModel.View_ArticleType" Width="1.5" PointX="13.375" PointY="0.75" />
+        <AssociationConnector Association="FoodsModel.FK_FoodReply_FoodCom1" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

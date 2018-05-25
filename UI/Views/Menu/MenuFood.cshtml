@@ -1,0 +1,13 @@
+﻿@model IEnumerable<Models.Food>
+@{
+    ViewBag.Title = "MenuFood";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@foreach (var s in Model)
+{
+    <div>
+        <p>@s.FoodName</p>
+        <a href="@Url.Action("FoodDetails","Home", new {id = s.FoodID})" target="_blank" style="overflow:hidden; display:block;" class="max350"> <img src="@s.FoodImage" height="260" width="178" /></a>
+    </div>
+}
+

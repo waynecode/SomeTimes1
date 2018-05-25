@@ -1,0 +1,191 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{3128C986-C39C-47A1-9C58-A80AFF79283E}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Models</RootNamespace>
+    <AssemblyName>Models</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ArticleCategory.cs">
+      <DependentUpon>Foods.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ArticleCom.cs">
+      <DependentUpon>Foods.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ArticleReply.cs">
+      <DependentUpon>Foods.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Articles.cs">
+      <DependentUpon>Foods.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Collect.cs">
+      <DependentUpon>Foods.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Food.cs">
+      <DependentUpon>Foods.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FoodCategory.cs">
+      <DependentUpon>Foods.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FoodCom.cs">
+      <DependentUpon>Foods.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FoodReply.cs">
+      <DependentUpon>Foods.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Foods.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Foods.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Foods.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Foods.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Foods.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Foods.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Manager.cs">
+      <DependentUpon>Foods.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Menu.cs">
+      <DependentUpon>Foods.tt</DependentUpon>
+    </Compile>
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Special.cs">
+      <DependentUpon>Foods.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sysdiagrams.cs" />
+    <Compile Include="Tag.cs">
+      <DependentUpon>Foods.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Users.cs">
+      <DependentUpon>Foods.tt</DependentUpon>
+    </Compile>
+    <Compile Include="View_ArticleType.cs">
+      <DependentUpon>Foods.tt</DependentUpon>
+    </Compile>
+    <Compile Include="View_ArticleUsers.cs">
+      <DependentUpon>Foods.tt</DependentUpon>
+    </Compile>
+    <Compile Include="View_FoodUsers.cs">
+      <DependentUpon>Foods.tt</DependentUpon>
+    </Compile>
+    <Compile Include="View_MenuFood.cs">
+      <DependentUpon>Foods.tt</DependentUpon>
+    </Compile>
+    <Compile Include="View_SpecialFood.cs">
+      <DependentUpon>Foods.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config" />
+    <EntityDeploy Include="Foods.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Foods.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="bin\Debug\Models.dll.config" />
+    <None Include="Foods.edmx.diagram">
+      <DependentUpon>Foods.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bin\Debug\EntityFramework.dll" />
+    <Content Include="bin\Debug\EntityFramework.SqlServer.dll" />
+    <Content Include="bin\Debug\EntityFramework.SqlServer.xml" />
+    <Content Include="bin\Debug\EntityFramework.xml" />
+    <Content Include="bin\Debug\Models.dll" />
+    <Content Include="bin\Debug\Models.pdb" />
+    <Content Include="bin\Debug\PagedList.dll" />
+    <Content Include="bin\Debug\PagedList.Mvc.dll" />
+    <Content Include="bin\Debug\PagedList.Mvc.xml" />
+    <Content Include="bin\Debug\PagedList.xml" />
+    <Content Include="bin\Debug\zh-Hans\EntityFramework.resources.dll" />
+    <Content Include="bin\Debug\zh-Hans\EntityFramework.SqlServer.resources.dll" />
+    <Content Include="Content\PagedList.css" />
+    <Content Include="Foods.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Foods.edmx</DependentUpon>
+      <LastGenOutput>Foods.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Foods.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Foods.edmx</DependentUpon>
+      <LastGenOutput>Foods.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="bin\Release\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

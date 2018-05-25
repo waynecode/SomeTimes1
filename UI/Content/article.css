@@ -1,0 +1,21 @@
+﻿body {
+  
+}
+.alist{
+    position: relative;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+}
+.headpic{
+    position: absolute;
+    left: 0;
+}
+.tie{
+    margin: 0;
+    padding: 0;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+}

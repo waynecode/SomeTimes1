@@ -1,0 +1,146 @@
+﻿@model UI.Models.HomeIndexViewModel
+@{
+    ViewBag.Title = "Index";
+}
+
+<div id="wp" class="wp">
+    <div id="pt" class="bm cl">
+        <div class="z">
+            <a href="#" class="nvhm" title="首页">有食候</a><em>»</em><a href="#">首页</a>
+        </div>
+        <div class="z"></div>
+    </div>
+    <style id="diy_style" type="text/css"></style>
+
+    <div class="wp" style="width:1210px;">
+        <div id="diy1" class="area">
+            <div id="frameo3QRTi" class="frame move-span cl frame-1">
+                <div id="frameo3QRTi_left" class="column frame-1-c">
+                    <div id="frameo3QRTi_left_temp" class="move-span temp"></div><div id="portal_block_91" class="block move-span">
+                        <div id="portal_block_91_content" class="dxb_bc">
+                            <link href="~/Content/ft-carousel.css" rel="stylesheet" />
+                            <div class="example">
+                                <div class="ft-carousel" id="carousel">
+                                    <ul class="carousel-inner" style="width: 5950px; left: -1190px;">
+                                        <li class="carousel-item" style="width: 1190px;">
+                                            <img src="~/img/152715fk9jg9hyhc6d6r55.jpg" />
+                                        </li>
+                                        <li class="carousel-item" style="width: 1190px;">
+                                            <img src="~/img/160359su8c3y8aumffy7s1.jpg" />>
+                                        </li>
+                                        <li class="carousel-item" style="width: 1190px;"><img src="~/img/155026d25ysigrmsiddsjy.jpg" /></li>
+                                    </ul>
+                                    <span class="carousel-btn carousel-prev-btn" style="display: none;"></span><span class="carousel-btn carousel-next-btn" style="display: none;"></span>
+                                </div>
+                            </div>
+                            
+                            <script src="~/Scripts/ft-carousel.min.js"></script>
+                            <script type="text/javascript">
+                                jq("#carousel").FtCarousel({
+                                    auto: true,
+                                    time: 6000,
+                                    indicators: false
+                                });
+                            </script>
+                        </div>
+                    </div>
+                    <!--[专区]-->
+                    <div id="portal_block_121" class="block move-span">
+                        <div id="portal_block_121_content" class="dxb_bc">
+                            <div id="index_rt">
+                                <ul>
+                                    @foreach (var special in Model.Specialtop5)
+                                    {
+                                        <li>
+                                            <a href="#" target="_blank">
+
+                                                <img src="@special.SpecialImage" />
+                                            </a>
+                                        </li>
+                                    }
+                                  
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><!--[/diy]-->
+        <div class="bm bmw  flg cl">
+            <div id="zhuanji_tit">
+                <img src="http://www.tumi365.com/static/image/common/jxzj.png" alt="菜单精选">
+                <h2>菜单精选</h2>
+                <a class="changebg" style="float: right;  background-color: #f36;  padding: 5px 10px;   color: #fff;" href="#" rel="nofollow">往期回顾&nbsp;&gt;&gt;</a>
+            </div>
+            <div id="zhuanji_sy" class="bm_c" style="">
+                @foreach (var menu in Model.Menutop5)
+                {
+                    <div class="zhuanji_sy">
+                        <a href="#" style="max-height: 222px;overflow: hidden; display:block;">
+                            <img style="width: 222px;  min-height: 222px;" class="lazy" alt="食尚课堂" src="@menu.MenuImage">
+                        </a>
+                        <dl style="padding:10px 20px;">
+                            <dt><a class="zhuanji_url" href="#">@menu.MenuName</a></dt>
+                            <dd style="margin-top:10px;"><em class="change_color">主题: 1</em> <em class="change_color">评论: 0</em><em class="change_color">订阅: 0</em></dd>
+                            <dd>
+                                <em class="change_color">最后发表: 2018-1-6 22:45</em>
+                            </dd>
+                        </dl>
+                    </div>
+                }
+
+            </div>
+        </div>
+
+        <!--[diy=diy3]--><div id="diy3" class="area"></div><!--[/diy]-->
+        <!--[diy=diy7]--><div id="diy7" class="area">
+            <div id="frame7zO4rf" class="frame move-span cl frame-1">
+                <div id="frame7zO4rf_left" class="column frame-1-c">
+                    <div id="frame7zO4rf_left_temp" class="move-span temp"></div><div id="portal_block_101" class="block move-span">
+                        <div id="portal_block_101_content" class="dxb_bc">
+                            <div class="portal_block_summary">
+                                <div>
+                                    <a href="@Url.Action("Register","Users")" target="_blank" style="margin: 10px; display: block; border-radius: 5px; overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,.3);" rel="nofollow">
+                                        <img src="~/img/114428xuaf8silsls7zs1g.jpg" height="120" width="1190" alt="点击成为美食分享家" border="0" />
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div><div id="portal_block_93" class="block move-span">
+                        <div id="portal_block_93_content" class="dxb_bc">
+                            <div>
+                                <div id="zhuanji_tit">
+                                    <img src="~/img/zxfx.png" />
+                                    <h2>最新分享</h2>
+                                </div>
+                                <!--瀑布流展示-->
+                                <ul id="waterfall" class="waterfall" style="margin-top: 15px; position: relative; width: 1210px; height: 1312px;">
+                                    @foreach (var food in Model.Foodtop8)
+                                    {
+                                        <li class="pubuliu" style="width: 222px; margin: 10px; position: absolute; left: 0px; top: 0px;">
+                                            <a href="@Url.Action("FoodDetails","Home", new {id = food.FoodID})" target="_blank" style="overflow:hidden; display:block;" class="max350"><img class="lazy" data-original="@food.FoodImage" src="" width="222" alt="有食候"></a>
+                                            <p class="pubuliu_tit"><a href="@Url.Action("FoodDetails","Home", new { id = food.FoodID})" title="" target="_blank">@food.FoodName</a></p>
+                                            <div class="pubuliu_eru">
+                                                <img src="~/img/eye.png" /><em>884</em>
+                                                <img src="~/img/reply.png" /><em>2</em>
+                                                <img src="~/img/up.png" /><em>3</em>               
+                                            </div>
+                                            <div style="padding: 0px 10px; margin-bottom: 10px;">
+                                                <a href="#" target="_blank">
+                                                    <div><img src="#" style="width: 30px;height: 30px;border-radius:100px;float: left;"></div>
+                                                    <div><p style="line-height:30px; padding-left: 40px;"></p></div>
+                                                </a>
+                                            </div>
+                                        </li>
+
+                                    }
+                                </ul>
+                                <a href="#" class="chh">浏览更多 》</a>                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><!--[/diy]-->
+    </div>
+</div>

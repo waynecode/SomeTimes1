@@ -1,0 +1,59 @@
+﻿@using Models
+@using PagedList.Mvc;
+@model UI.Models.FoodSpecialViewModels
+
+@{
+    ViewBag.Title = "FoodSpecial";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+    <link href="~/Content/hudie.css" rel="stylesheet" />
+    <link href="~/Scripts/jquery.unobtrusive-ajax.js" rel="stylesheet" />
+    <link href="~/Content/css/ShiCilib.css" rel="stylesheet" />
+    <link href="~/Content/css/ShiCiwenxue.css" rel="stylesheet" />
+    <link href="~/Content/css/ShiCiswiper.min.css" rel="stylesheet" />
+    <style>
+        body {
+            font-family: 'Hiragino Sans GB', 'Open Sans', consolas, 'Microsoft YaHei', 微软雅黑, STHeiti, 'WenQuanYi Micro Hei', SimSun, sans-serif, tahoma;
+        }
+    </style>
+
+<div class="FoodMenu">
+    <div class="content">
+        <div class="menu">
+            <div class="zhonglei" id="zhonglei">
+                <b>专区类型：</b>
+                <div class="info">
+                    @Ajax.ActionLink("全部", "FoodSpecial", "Special2", null)
+                    @foreach (Special p in Model.Special)
+                    {
+                        @Ajax.ActionLink(p.SpecialName, "FoodSpecial", "Special2", new { genreInfoFrom = p.SpecialName }, new AjaxOptions()
+                   {
+                       UpdateTargetId = "Div1",
+                       InsertionMode = InsertionMode.Replace,
+                       HttpMethod = "GET"
+                   })
+                    }
+                </div>
+                <hr />
+                <div class="xian"></div>
+            </div>
+            @{Html.RenderAction("FoodSpecialmid", "Special2");}
+
+        </div>
+    </div>
+</div>
+
+<script>
+
+    $(document).ready(function () {
+        var $zhonglei_a = $('#zhonglei a');
+        $zhonglei_a.click(function () {
+            $(this).addClass('on').siblings().removeClass('on');
+        });
+    });
+</script>
+
+
+

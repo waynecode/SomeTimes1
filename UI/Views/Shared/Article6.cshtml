@@ -1,0 +1,7 @@
+﻿@model IEnumerable<Models.Articles>
+    
+    @foreach (var article in Model)
+    {
+                <a href="@Url.Action("ArticleDetails", "ArticleShow", new { id = article.ArticleID})"><h2>@article.Title</h2></a>
+                <img src="@article.Picture" height="260" width="178" />   
+    }

@@ -1,0 +1,57 @@
+﻿
+@using Models
+@using PagedList.Mvc;
+@model UI.Models.TypeViewModels
+@{
+    ViewBag.Title = "ArticleIndex";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<head>
+    <link href="~/Content/css/gg.css" rel="stylesheet" />
+    <link href="~/Content/css/passport.css" rel="stylesheet" />
+ 
+    
+</head>
+
+<div id="main" class="clearfix">
+    <div class="zhutnav r3 mb25">
+        <ul class="pls">
+            <li class="lirdo "><a href="/site/"><span>全部主题站</span></a></li>
+            <li class="lirdo ls"><a href=""><span>全部文章</span></a></li>
+        </ul>
+    </div>
+    <div class="maleft">
+        <div class="allsite clearfix">
+            <a href="/site/rss" target="_bank"><span class="rss">订阅RSS</span></a>
+            <h2 class="fsl mb15 t550">全部文章</h2>
+            @{Html.RenderAction("AcIndex", "Article");}
+        </div>
+    </div>
+   
+        <div class="maright">
+
+            <div class="hotzt mb25">
+                <h2>主题站</h2>
+                @Ajax.ActionLink("全部", "ArticleIndex", "Article", null)
+
+                @foreach (var p in Model.Type)
+                {
+
+                <div class="pv15 lictq clearfix">
+                    <div class="hgpic mrm">
+                        <a href="/site/lifetips" target="_blank"><img class="img12" src="https://i1.douguo.com/upload/post/1458900546.jpg" alt="生活小窍门"></a>
+                    </div>
+                    <h3>
+                        @Ajax.ActionLink(p.ArticleCName, "ArticleIndex", "Article", new { genreInfoFrom = p.ArticleCName }, new AjaxOptions()
+               {
+                   UpdateTargetId = "Div1",
+                   InsertionMode = InsertionMode.Replace,
+                   HttpMethod = "GET"
+               })</h3>
+                    <p>分享生活智慧的结晶</p>
+                </div>
+                }
+            </div>
+        </div>
+
+</div>
