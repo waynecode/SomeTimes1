@@ -11,6 +11,8 @@
           </Key>
           <Property Name="ArticleCategoryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ArticleCName" Type="nvarchar" MaxLength="50" />
+          <Property Name="ArticleCJS" Type="nvarchar(max)" />
+          <Property Name="ArticleCImage" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="ArticleCom">
           <Key>
@@ -667,6 +669,8 @@
           <Property Name="ArticleCategoryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ArticleCName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Articles" Relationship="Self.FK_Articles_ArticleCategory" FromRole="ArticleCategory" ToRole="Articles" />
+          <Property Name="ArticleCJS" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ArticleCImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="ArticleCom">
           <Key>
@@ -1287,6 +1291,8 @@
           <EntitySetMapping Name="ArticleCategory">
             <EntityTypeMapping TypeName="FoodsModel.ArticleCategory">
               <MappingFragment StoreEntitySet="ArticleCategory">
+                <ScalarProperty Name="ArticleCImage" ColumnName="ArticleCImage" />
+                <ScalarProperty Name="ArticleCJS" ColumnName="ArticleCJS" />
                 <ScalarProperty Name="ArticleCategoryID" ColumnName="ArticleCategoryID" />
                 <ScalarProperty Name="ArticleCName" ColumnName="ArticleCName" />
               </MappingFragment>

@@ -3,63 +3,170 @@
     ViewBag.Title = "Login";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<head>
+    <script src="~/Content/998c38d69595.js"></script>
+    <script src="~/Content/ac18864fde56.js"></script>
+    <link href="~/Content/a1fc24ae498a.css" rel="stylesheet" />
 
-<!DOCTYPE html>
-<div id="wp" class="wp">
-    <div id="ct" class="ptm wp cl">
-        <div class="nfl" id="main_succeed" style="display: none">
-            <div class="f_c altw">
-                <div class="alert_right">
-                    <p id="succeedmessage"></p>
-                    <p id="succeedlocation" class="alert_btnleft"></p>
-                    <p class="alert_btnleft"><a id="succeedmessage_href">如果您的浏览器没有自动跳转，请点击此链接</a></p>
-                </div>
-            </div>
-        </div>
-        <div class="mn">
+</head>
+<div id="main_all" style="min-height: 538px;">
 
-            <div class="bm" id="main_message">
+    <div class="signin-up mb30">
 
-                <p id="returnmessage4"></p>
-                <div id="main_messaqge_" class="user_reg">
-                    <div style="padding:0px 100px;">
-                        <em style="border-top: 1px solid #ededed;display: block; width: 300px; position: relative;top: 65px;"></em>
-                        <p style="height: 43px;line-height: 42px;font-size: 22px;color: #333;text-align: center; margin: 40px auto;">请通过用户名注册</p>
-                        <em style="border-top: 1px solid #ededed; display: block; width: 300px; position: relative;    top: -60px;  float: right;"></em>
+        <div class="signin-up-box w780">
+            <h1>登 录</h1>
+
+            <div class="clearfix mb15" style="padding-top:15px;">
+                <div class="fl signin-up-left">
+                    <div class="title mb30">使用社交帐号直接登录</div>
+                    <div class="snslogin clearfix">
+                        <a href="/accounts/weixin/login/"><img src="/static/img/icon-wechat-red.png">微信</a>
+                        <a href="/accounts/sina/login/"><img src="/static/img/icon-weibo-red.png">微博</a>
+                        <a style="margin-right:0;" href="/accounts/qq/login/"><img src="/static/img/icon-qq-red.png">QQ</a>
                     </div>
+                </div>
 
-                    <div class="mtw" style=" margin 20px 80px 0px;">
+                <div class="fr signin-up-right">
+                    <form name="/Users/Login/" id="signin" method="post">
+                        <div style="display:none"><input type="hidden" name="csrfmiddlewaretoken" value="84ffefc443b46555e894b6de7347d89c"></div>
+                        <div class="signin-up-form sign-in-style" style="margin-top:10px;">
+                            <div class="error-messages clear-fix" id="signup-errors" style="top: 60px; display: block;">
+                                <p id="error-msg" style="display: none;">
+                                    登陆成功，将前往个人主页
+                                </p>
+                            </div>
 
-                        <div id="reginfo_a">
-                            @using (Html.BeginForm("Login", "Users", FormMethod.Post, new { @id = "mainform" }))
-                            {
-                                <div class="formheader">
-                                    <label id="hlkNormalLogin" style="color: #32A5E7">用户登录</label>&nbsp;&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;
-                                 
-                                 
-                                </div>
-                                <div class="normalInput normaluser">
-                                    @Html.TextBoxFor(m => m.UserName, new { @class = "p_fre",@id = "txtUser", placeholder = "用户名", maxlength = "32" })
-                                   
-                                </div>
-                                <div class="normalInput normalpassword">
-                                    @Html.TextBoxFor(m => m.Password, new { @class = "p_fre",@id = "txtPassword", placeholder = "密码", type = "password",  maxlength = "20" })
-                                    
-                                    
-                                </div>
-                                <input type="submit" value="登录" class="cssbtnRegister"  style="background-color: #32A5E7; font-size: 14px; font-family: 'Microsoft Yahei ,Arial,Helvetica,sans-serif'; color: #ffffff; height: 40px; width: 680px;margin-left:177px" />
-                               
-                            }
+                            <div class="member" style="display: none;" id="old_user_nickname">
+                                <div class="fs0 mb5"><img style="" src="https://sogoke-avatar.b0.upaiyun.com/media/user/10420975/1/avatar!large"></div>
+                                <span><em style="font-style:normal;">嘿嘿嘿嘿嘿的</em> <a href="javascript:;" id="change-account">更换帐号</a></span>
+                            </div>
+
+                            <div class="label-holder mb15" style="padding-top: 40px; display: block;" id="new_user_nickname">
+                                <input class="txt" name="UserName" id="passport" placeholder="用户名" value="">
+                            </div>
+
+                            <script type="text/javascript">
+                    (function($) {
+                        'use strict';
+                        var last_user_id = $.cookie('last_user_id');
+                        var last_avatar_id = $.cookie('last_avatar_id');
+                        var last_user_username = $.cookie('last_user_username');
+                        if (last_user_id !== null &&
+                            last_avatar_id !== null &&
+                            last_user_username !== null) {
+                            $('#passport').val(last_user_username);
+                            $('#new_user_nickname').hide();
+                            $('#old_user_nickname').show();
+                            $('#old_user_nickname em').html(last_user_username);
+                            $('#old_user_nickname img').attr('src', '#' + last_user_id + '/' + last_avatar_id + '/avatar!large');;
+                        }
+                        $('#change-account').on('click', function() {
+                            $('#error-msg').hide();
+                            $('#old_user_nickname').slideUp(200, function() {
+                                setTimeout(function() {
+                                    $('#new_user_nickname').slideDown(300);
+                                }, 380);
+                            });
+                            $('#signup-errors').fadeOut(100).animate({'top':'60px'},function(){
+                                $('#signup-errors').fadeIn(300);
+                            });
+                        });
+                    })(jQuery);
+                            </script>
+
+                            <div class="label-holder mb15">
+                                <input type="password" class="txt" name="Password" id="password" placeholder="密码">
+                            </div>
+
+                            <div class="mb15 auto-signin">
+                                <label><input type="checkbox" name=""> 下次自动登录</label>
+                                <a href="/accounts/reset/" class="forget-pwd">忘记密码？</a>
+                            </div>
+
+                            <div class="signup-btn"><button type="submit">登  陆</button></div>
                         </div>
-
-                    </div>
+                    </form>
                 </div>
             </div>
 
+            <div class="signin-up-foot">
+                <p>还没有帐号？ <a href="/accounts/signup/">注册»</a></p>
+
+            </div>
         </div>
 
+        <script>
+$(function(){
+    $('input').on('keyup',function() {
+        $('#error-msg').hide();
+    })
+
+    $('#signin').submit(function(e){//登录和老用户登录
+        if( $('#passport').val() == '' ){
+            $('#error-msg').html('请输入用户名！').show();
+            $('#passport').focus();
+            return false;
+        }else if( $('#password').val() == '' ){
+            $('#error-msg').html('请输入密码！').show();
+            $('#password').focus();
+            return false;
+        }
+        else{
+            var data = {
+                UserName: $('#passport').val(),
+                Password: $('#password').val()
+            }
+
+            //$.ajax({
+            //    url:'/Users/Login/',
+            //    data:data,
+            //    type: 'post',
+
+            //    success: function(data) {
+            //                 console.log(data);
+            //                     var redirect = '/Home/Index';
+            //                     var message = '登陆成功，将前往个人主页'
+
+
+            //                 sogoke.showFntext2_bingo(message, 3000, function() {
+            //                     needNotice=false;
+            //                     window.location.href = redirect;
+            //                 });
+            //             }
+            //    }
+            //)
+            // var options = {
+            //     data:data,
+            //     error:function(data) {
+            //         sogoke.showFntext2_error('登陆失败，请检查用户名或密码是否正确');
+            //     },
+            //     success:function(data) {
+            //         console.log(data);
+            //             var redirect = '/home/';
+            //             var message = '登陆成功，将前往个人主页'
+
+            //             // $(editor.iframe).animate({'height': 0 + 'px'}, 500, function() {
+            //             //     body.html('');
+            //             // });
+            //         sogoke.showFntext2_bingo(message, 3000, function() {
+            //             needNotice=false;
+            //             //window.location.href = redirect;
+            //         });
+            //     }
+            // };
+
+            
+        }
+        //这里可以用ajax提交登录，如果登录失败可以用Xnotify进行提示
+        //e.preventDefault();
+        //return false;
+    });
+});
+        </script>
     </div>
+
 </div>
+
 
 
 

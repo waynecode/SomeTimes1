@@ -16,5 +16,7 @@ namespace IDAL
        
         IEnumerable<Users> Search(string search);
 
+
+        Users GetUserByID(int UserID);
     }
 }

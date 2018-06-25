@@ -1,7 +1,83 @@
-﻿@{
-    ViewBag.Title = "About";
-}
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
+﻿<div id="wp" class="wp">
+    <div id="pt" class="bm cl">
+        <div class="z">
+            <a href="./" class="nvhm" title="首页">兔蜜美食</a> <em>›</em>
+            <a href="home.php?mod=spacecp">个人设置</a> <em>›</em>个人资料
+        </div>
+    </div>
+    <div id="ct" class="ct2_a wp cl" style="width:1024px;">
+        <div class="mn">
+            <div class="bm bw0">
+                <h1 class="mt">
+                    个人资料
+                </h1>
+                <!--don't close the div here--><ul class="tb cl">
+                    <li class="a"><a href="home.php?mod=spacecp&amp;ac=profile&amp;op=base">基本资料</a></li>
+                </ul><iframe id="frame_profile" name="frame_profile" style="display: none"></iframe>
+                <form action="" method="post" enctype="multipart/form-data" autocomplete="off" target="frame_profile" onsubmit="clearErrorInfo();">
+                    <input type="hidden" value="39629dab" name="formhash">
+                    <table cellspacing="0" cellpadding="0" class="tfm" id="profilelist">
+                        <tbody>
+                            <tr>
+                                <th>用户ID</th>
+                                <td>gch9686</td>
+                                <td>&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <th>用户名</th>
+                                <td><input id="Text1" type="text" /></td>
+                                <td>&nbsp;</td>
+                            </tr>
+                            <tr id="tr_gender">
+                                <th id="th_gender">性别</th>
+                                <td id="td_gender">
+                                    <select name="gender" id="gender" class="ps" tabindex="1"><option value="0" selected="selected">保密</option><option value="1">男</option><option value="2">女</option></select><div class="rq mtn" id="showerror_gender"></div><p class="d"></p>
+                                </td>
+                             
+                            </tr>
+                            <tr id="tr_birthday">
+                                <th id="th_birthday">邮箱</th>
+                                <td id="td_birthday">
+                                    <input id="Text1" type="text" />
+                                </td>
+                                <td class="p">
+                                  
+                                </td>
+                            </tr>
+                      
+                            <tr id="tr_bio">
+                                <th id="th_bio"><span class="rq" title="必填">*</span>自我介绍</th>
+                                <td id="td_bio">
+                                    <textarea name="bio" id="bio" class="pt" rows="3" cols="40" tabindex="1"></textarea><div class="rq mtn" id="showerror_bio"></div><p class="d"></p>
+                                </td>
+                              
+                            </tr>
+                            <tr>
+                                <th>&nbsp;</th>
+                                <td colspan="2">
+                                    <input type="hidden" name="profilesubmit" value="true">
+                                    <button type="submit" name="profilesubmitbtn" id="profilesubmitbtn" value="true" class="pn pnc"><strong>保存</strong></button>
+                                    <span id="submit_result" class="rq"></span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </form>
+             
+            </div>
+        </div>
+        <div class="appl">
+            <div class="tbn">
+                <h2 class="mt bbda">个人设置</h2>
+                <ul>
+                    <li><a href="home.php?mod=spacecp&amp;ac=avatar">修改头像</a></li>
+                    <li class="a"><a href="home.php?mod=spacecp&amp;ac=profile">个人资料</a></li>
 
-<p>Use this area to provide additional information.</p>
+                    <li><a href="home.php?mod=spacecp&amp;ac=profile&amp;op=password">密码安全</a></li>
+
+                    <li><a href="home.php?mod=spacecp&amp;ac=promotion">访问推广</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

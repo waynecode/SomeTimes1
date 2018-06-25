@@ -113,6 +113,17 @@ namespace UI.Controllers
             var foodss = foodManager.GetFoodBySId(id);
             return View(foodss);
         }
+
+
+        #region 最新展示
+        public ActionResult ZuiXin()
+        {
+            var Food = foodManager.GetFood();
+            Models.HomeIndexViewModel vm = new Models.HomeIndexViewModel();
+            vm.Food = Food;
+            return View(vm);
+        }
+        #endregion
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";

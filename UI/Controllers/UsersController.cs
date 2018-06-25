@@ -62,7 +62,7 @@ namespace UI.Controllers
                 }
                 else
                 {
-                    return Content("<script>;alert('该账号不存在!');history.go(-1)</script>");
+                    return Content("<script>;alert('该账号不存在或者密码错误!');history.go(-1)</script>");
                 }
             }
             catch (Exception ex)
@@ -86,27 +86,24 @@ namespace UI.Controllers
             return RedirectToAction("Index", "Home");
         }
         #endregion
-        #region 个人中心
-        //public ActionResult UserCenter(string Users_id)
+        #region 个人设置
+        //public ActionResult UpdateInfo(Users user)
         //{
-        //    UserCenterViewModel uc = new UserCenterViewModel();
-           
-        //    uc.Uses1 = usersmanager.IEGetUsersById(Users_id);
-        //    ViewBag.Users_id = Users_id;
-        //    uc.List1 = new SelectList(db.UserAddress.Where(c => c.Users_id == Users_id), "Address", "Address");//下拉列表数据绑定
-        //    uc.UserInfo = db.UserInfo.Find(Users_id);
-        //    Session["Guanzhu"] = 0; //未关注
-                       
-        //    //原创帖
-        //    uc.Post1 = postManager.GetPostByUser(Users_id, 1).Take(4);
-        //    //uc.PostYuanChuang = postManager.GetPostByUser(Users_id, 1);
-        //    //朗诵帖
-        //    uc.Post2 = postManager.GetPostByUser(Users_id, 2).Take(4);
-        //    //讨论帖
-        //    uc.Post3 = postManager.GetPostByUser(Users_id, 3).Take(4);
-        //    //草稿
-        //    uc.Draft = postManager.GetPostDraftByUser(Users_id);
-        //    return View(uc);
+        //    Users u = usersmanager.GetUserByID(int.Parse(Session["UserID"].ToString()));
+        //    try
+        //    {
+        //        u.UserName = user.UserName;
+        //        u.Sex = user.Sex;
+        //        u.Email = user.Email;
+        //        u.Description = user.Description;
+        //        usersmanager.UpdateUserInfo(u);
+        //    }
+        //    catch (DbEntityValidationException ex)
+        //    {
+        //        string error = ex.Message;
+
+        //    }
+        //    return View("UserInfo", u);
         //}
         #endregion
     }

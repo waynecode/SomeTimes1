@@ -1,0 +1,29 @@
+﻿@using PagedList.Mvc;
+@model PagedList.IPagedList<Models.Food>
+@{
+    Layout = null;
+}
+
+<div  style="width:1000px; margin:0 auto;">
+    <ul >
+
+        @foreach (var shi in Model)
+        {
+            <li style="float:left; width:300px; height:273px;padding-top:30px;padding-right:20px">
+                <div class="face mb15" style="width:300px; height:225px; margin-bottom:0;">
+                    <a target="_blank" href="@Url.Action("FoodDetails","Home", new {shiid = shi.FoodID})"><img src='..@shi.FoodImage' style="width:300px; height:225px;" /></a>
+                </div>
+                <div class="sview-abs" style="height:24px; font-size:12px; text-align:left; padding:0 10px; color:#072617; line-height:24px;">
+                    <a target="_blank" href="@Url.Action("FoodDetails","Home", new {shiid = shi.FoodID})" style="color:black;">@shi.FoodName</a>
+                </div>
+                <div class="sview-user clearfix" style="height:24px; padding:0 10px; margin-bottom:0; line-height:24px;">
+                    <a target="_blank" href="@Url.Action("FoodDetails","Home", new {shiid = shi.FoodID})" class="fl" style="color:#9b9b9b;">@shi.Users.UserName</a>
+                    <div class="sgkred fr" style="color:#63a485;">￥88.0</div>
+                </div>
+            </li>
+        }
+
+    </ul>
+   
+</div>
+

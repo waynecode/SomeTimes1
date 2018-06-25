@@ -15,5 +15,7 @@ namespace UI.Models
 
         public IEnumerable<Special> Specialtop5 { get; set; }
 
+        public IEnumerable<Food> Food { get; set; }
+
     }
 }

@@ -39,5 +39,10 @@ namespace BLL
             var users = iusers.Denglu(UserName, Password);
             return users;
         }
+
+        public Users GetUserByID(int UserID)
+        {
+            return iusers.GetUserByID(UserID);
+        }
     }
 }

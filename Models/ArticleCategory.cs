@@ -22,6 +22,8 @@ namespace Models
     
         public int ArticleCategoryID { get; set; }
         public string ArticleCName { get; set; }
+        public string ArticleCJS { get; set; }
+        public string ArticleCImage { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Articles> Articles { get; set; }

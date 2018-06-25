@@ -44,7 +44,13 @@ namespace DAL
             Users users = db.Users.Find(UserName);
             return users;
         }
-       
-        
+
+        public Users GetUserByID(int UserID)
+        {
+            Users users = (from u in db.Users
+                           where u.UserID == UserID
+                           select u).FirstOrDefault();
+            return users;
+        }
     }
 }

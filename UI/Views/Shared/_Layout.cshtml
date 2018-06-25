@@ -33,7 +33,6 @@
         
     </script>
 
-
 </head>
 <body>
     <div>
@@ -42,11 +41,11 @@
                 <h2><a href="@Url.Action("Index","Home")" title="有食候"><img src="~/img/common_logo.png" alt="有食候"></a></h2>
                 <div id="munecd">
                     <a href="@Url.Action("Index","Home")">首页</a><div style="display: inline-block" id="mn_F38">
-                    <a href="#" hidefocus="true">最新</a></div><div style="display: inline-block" id="mn_F40">
-                    <a href="http://www.tumi365.com/sp/1" hidefocus="true">菜谱</a></div><div style="display: inline-block" id="mn_F43">
+                    <a href="@Url.Action("ZuiXin","Home")" hidefocus="true">最新</a></div><div style="display: inline-block" id="mn_F40">
+                    <a href="#" hidefocus="true">菜谱</a></div><div style="display: inline-block" id="mn_F43">
                     <a href="@Url.Action("MenuShow","Menu")" hidefocus="true">菜单</a></div><div style="display: inline-block" id="mn_F42">
                     <a href="@Url.Action("ArticleIndex","Article")" hidefocus="true">博文</a></div><div style="display: inline-block" id="mn_F49">
-                    <a href="@Url.Action("SpecialShow","Special")" hidefocus="true">专题</a></div>
+                    <a href="@Url.Action("SpecialTop","Special")" hidefocus="true">专题</a></div>
                 </div>
                 <div id="sousuo">
                     <div id="scbar" class="cl">
@@ -120,15 +119,6 @@
                     </div>
                 }
             </div>
-
-            <div class="wp">
-                <div class="p_pop h_pop" id="mn_userapp_menu" style="display: none"></div><div id="mu" class="cl">
-                </div>
-                <ul id="scbar_type_menu" class="p_pop" style="display: none;"><li><a href="javascript:;" rel="forum" class="curtype">帖子</a></li><li><a href="javascript:;" rel="user">用户</a></li></ul>
-                <script type="text/javascript">
-                    initSearchmenu('scbar', '');
-                </script>
-            </div>
         </div>
     </div>
     <div id="tm-lr"></div>
@@ -176,11 +166,7 @@
     </div>
   
     <script type="text/javascript">_attachEvent(window, 'scroll', function () { showTopLink(); }); checkBlind();</script>
-    <div id="discuz_tips" style="display:none;"></div>
-    <script type="text/javascript">
-        var tipsinfo = '54575705|X3.2|0.6||0||0|7|1525606792|0aa63e642f98c765f306641e207f52b4|2';
-    </script>
-    <script src="http://discuz.gtimg.cn/cloud/scripts/discuz_tips.js?v=1" type="text/javascript" charset="UTF-8"></script>
+ 
 </body>
 
 </html>

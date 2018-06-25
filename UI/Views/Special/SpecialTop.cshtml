@@ -1,0 +1,64 @@
+﻿@model IEnumerable<Models.Special>
+@{
+    ViewBag.Title = "SpecialTop";
+}
+
+<script src="~/Content/998c38d69595.js"></script>
+<script src="~/Content/ac18864fde56.js"></script>
+<link href="~/Content/a1fc24ae498a.css" rel="stylesheet" />
+<script src="~/Scripts/JS/jquery-3.1.1.min.js"></script>
+<script src="~/Scripts/JS/jquery.unobtrusive-ajax.min.js"></script>
+<style>
+    body {
+    background: #f4f4f4;
+}
+</style>
+
+<div id="main_all" style="min-height: 538px; margin-top:30px;">
+    <div class="newstyle-nav">
+        <div class="w1000 mb30 clearfix" style="width:1040px; position:relative;">
+            <nav class="fl" style="margin-left:20px;">
+                <a target="_self" href="/market/newest/">专区</a>
+            </nav>
+
+            <div class="fr" style="margin-right:18px;">
+                <div class="sub-nav">
+                    <ul>
+                        <li class="fl nav-list b_all  current ">
+                            @Ajax.ActionLink("全部", "SpecialMid", "Special", new { genreInfoFrom = "" }, new AjaxOptions()
+                       {
+                           UpdateTargetId = "Div1",
+                           InsertionMode = InsertionMode.Replace,
+                           HttpMethod = "GET"
+                       }, new { @class = "nav-list-a" })
+
+                        </li>
+                        @foreach (var p in Model)
+{
+                            <li class="fl nav-list m-category b_all ">
+                                @Ajax.ActionLink(p.SpecialName, "SpecialMid", "Special", new { genreInfoFrom = p.SpecialName}, new AjaxOptions()
+                       {
+                           UpdateTargetId = "Div1",
+                           InsertionMode = InsertionMode.Replace,
+                           HttpMethod = "GET"
+                       }, new { @class = "nav-list-a" })
+
+
+                            </li>
+}
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="w1000" style="overflow:hidden; text-align:center;" id="Div1">
+
+
+        @{Html.RenderAction("SpecialMid", "Special");}
+
+    </div>
+  
+
+        </div>

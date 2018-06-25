@@ -1,7 +1,7 @@
 #login_box{font-family:"å¾®è½¯é›…é»‘";}
 .clearfix:after{clear:both;content:".";display:block;font-size:0;height:0;line-height:0;visibility:hidden}
 .clearfix{zoom:1}
-a {color:#12937c;text-decoration:none;} 
+a {color:unset;text-decoration:none;} 
 .mt25 {
 margin-top: 25px;
 }

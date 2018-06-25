@@ -1,0 +1,60 @@
+﻿@model UI.Models.HomeIndexViewModel
+@{
+    ViewBag.Title = "ZuiXin";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div id="wp" class="wp">
+    <style id="diy_style" type="text/css"></style>
+    <!--[diy=diynavtop]--><div id="diynavtop" class="area"></div><!--[/diy]-->
+    <div id="pt" class="bm cl" style="display:none;">
+      
+    </div><div class="wp1">
+        <!--[diy=diy1]--><div id="diy1" class="area"><div id="frameCWQ994" class="frame move-span cl frame-1"><div id="frameCWQ994_left" class="column frame-1-c"><div id="frameCWQ994_left_temp" class="move-span temp"></div></div></div></div><!--[/diy]-->
+    </div>
+    <div class="boardnav">
+        <div id="ct1" class="wp1 cl ct2">
+
+            <div class="mn">
+                <div id="threadlist" class="tl bm bmw">               
+                    <div class="bm_c">
+                        <div id="forumnew" style="display:none"></div>
+                        <form method="post" autocomplete="off" name="moderate" id="moderate" action="forum.php?mod=topicadmin&amp;action=moderate&amp;fid=38&amp;infloat=yes&amp;nopost=yes">
+                            <input type="hidden" name="formhash" value="e59d1c3b">
+                            <input type="hidden" name="listextra" value="page%3D1">
+                            <table summary="forum_38" cellspacing="0" cellpadding="0" id="threadlisttableid">
+                                <tbody id="separatorline" class="emptb"><tr><td class="icn"></td><th></th><td class="by"></td><td class="num"></td><td class="by"></td></tr></tbody>
+                            </table><!-- end of table "forum_G[fid]" branch 2/3 -->
+                            <ul id="waterfall" class="ml waterfall cl" style="position: relative; width: 1518px; height: 1796px;">
+@foreach (var food in Model.Food)
+{
+    <li class="pubuliu" style="width: 222px; margin: 10px; position: absolute; left: 0px; top: 0px;">
+        <a href="@Url.Action("FoodDetails","Home", new {id = food.FoodID})" target="_blank" style="overflow:hidden; display:block;" class="max350"><img class="lazy" data-original="@food.FoodImage" src="" width="222" alt="有食候"></a>
+        <p class="pubuliu_tit"><a href="@Url.Action("FoodDetails","Home", new { id = food.FoodID})" title="" target="_blank">@food.FoodName</a></p>
+        <div class="pubuliu_eru">
+            <img src="~/img/eye.png" /><em>884</em>
+            <img src="~/img/reply.png" /><em>2</em>
+            <img src="~/img/up.png" /><em>3</em>
+        </div>
+        <div style="padding: 0px 10px; margin-bottom: 10px;">
+            <a href="#" target="_blank">
+                <div><img src="@food.Users.HeadPic" style="width: 30px;height: 30px;border-radius:100px;float: left;"></div>
+                <div><p style="line-height:30px; padding-left: 40px;">@food.Users.UserName</p></div>
+            </a>
+        </div>
+    </li>
+}
+                             
+                            </ul>
+                            <div id="tmppic" style="display: none;"></div>
+
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+     </div>
+    </div>
+ 
+</div>
+

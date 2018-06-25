@@ -29,40 +29,17 @@ namespace UI.Controllers
         }
 
 
-        public PartialViewResult ArticleIndex(String genreInfoFrom, string currentFilter, int? page)
+        public ActionResult ArticleIndex()
         {
-            var sort1 = db.ArticleCategory.ToList();
-            var foods = articlesmanager.GetArticles();
-            if (genreInfoFrom != null)
-            {
-                page = 1;
-            }
-            else
-            {
-                genreInfoFrom = currentFilter;
-            }
-            ViewBag.CurrentFilter = genreInfoFrom;
-            if (!String.IsNullOrEmpty(genreInfoFrom))
-            {
-                foods = foods.Where(x => x.ArticleCategory.ArticleCName == genreInfoFrom);
-            }
-            int pageSize = 9;
-            int pageNumber = (page ?? 1);
-            var menu = new TypeViewModels()
-            {
-                Type = sort1,
-                TypeArticle = foods.ToPagedList(pageNumber, pageSize),
-            };
-            return PartialView("ArticleIndex", menu);
+            var sort = db.ArticleCategory.ToList();
+            return View(sort);
 
         }
 
      
-        public ActionResult AcIndex(String genreInfoFrom, string currentFilter, int? page)
+        public ActionResult AcIndex1(String genreInfoFrom, string currentFilter, int? page)
         {
-            //var foods = from m in db.Shi.OrderByDescending(p => p.Shi_id)
-
-            //            select m;
+    
             var articles = articlesmanager.GetArticles();
 
 
@@ -92,7 +69,7 @@ namespace UI.Controllers
             int pageSize = 5;
             int pageNumber = (page ?? 1);
 
-            return View(articles.ToPagedList(pageNumber, pageSize));
+            return PartialView(articles.ToPagedList(pageNumber, pageSize));
         }
 
 

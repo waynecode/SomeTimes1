@@ -2729,12 +2729,6 @@ a.returnlist, a.returnboard {
     height: 20px;
 }
 
-.fl {
-    border: 1px solid #CDCDCD;
-    border-top: none;
-    background: #FFF;
-    display: none;
-}
 
     .fl .bm {
         margin-bottom: 0;

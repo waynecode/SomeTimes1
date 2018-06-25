@@ -5,22 +5,13 @@
     Layout = null;
 }
 <!DOCTYPE html>
-
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>CiIndex</title>
-    <link href="~/Content/css/gg.css" rel="stylesheet" />
-    <link href="~/Content/css/passport.css" rel="stylesheet" />
-</head>
-<body>
-    <div id="Div1" class="allart r3">
+    <div class="allart r3">
         @foreach (var article in Model)
             {
             <div class="oarticle clearfix pvl libdm">
                 <div class="scimg mrl">
 
-                    <img src="@article.Picture" />
+                    <img src="@article.Picture" style="width:220px; height:150px" />
                 </div>
                 <h3><a href="@Url.Action("ArticleDetails", "ArticleShow", new { id = article.ArticleID})"></a> @article.Title</h3>
                 <span class="pbs pts"><a href="@Url.Action("ArticleDetails", "ArticleShow", new { id = article.ArticleID})"></a> 发表于 @article.CreateTime</span>
@@ -32,7 +23,7 @@
 
         }
         <div class="pagination mt30 mb30">
-            Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+
             <div class="page_PN">
                 <span class="floblock" style="cursor: pointer;">@Html.PagedListPager(Model, page => Url.Action("ArticleIndex", "Article", new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))</span>
             </div>
@@ -42,8 +33,7 @@
 
 
 
-</body>
-</html>
+
 
 
 

@@ -4458,6 +4458,7 @@ a.lo_qq:hover, a.lo_sina:hover, a.lo_renren:hover, a.lo_db:hover, a.lo_bd:hover 
 }
 
     .pagination span.floblock a {
+        float:left;
         cursor: pointer;
         line-height: 25px;
         margin-right: 5px;
@@ -5192,6 +5193,7 @@ a.lo_qq:hover, a.lo_sina:hover, a.lo_renren:hover, a.lo_db:hover, a.lo_bd:hover 
 #main {
     width: 940px;
     margin: 0 auto;
+    padding:40px;
 }
 
 .maleft {
